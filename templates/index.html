@@ -1,0 +1,35 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign Up</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+  <div class="container">
+    <div class="left-section">
+      <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Inspira Logo" class="resized-image">
+      <p>Be the first to join our <br> new big family</p>
+    </div>
+
+    <div class="right-section">
+      <h1>Create Your Account</h1>
+      <form class="sign-up-form" id="registerForm">
+        <input type="text" id="fullname" placeholder="Full Name" required>
+        <input type="email" id="email" placeholder="Email" required>
+        <input type="password" id="password" placeholder="Password" required>
+        <input type="password" id="confirm_password" placeholder="Confirm Password" required>
+        <button type="submit" class="sign-up-btn">Sign Up</button>
+      </form>
+      <p class="sign-in">
+        Already have an account? <a href="/login">Log In</a>
+      </p>
+    </div>
+  </div>
+    <script src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+</html>
+
+
