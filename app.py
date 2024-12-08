@@ -17,6 +17,7 @@ app.config['SESSION_COOKIE_SAMESITE'] = 'Lax'
 
 
 
+
 db = SQLAlchemy(app)
 bcrypt = Bcrypt(app)
 
