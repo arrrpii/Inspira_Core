@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify, render_template, session
+from flask import Flask, request, jsonify, render_template, session, redirect, url_for
 from flask_sqlalchemy import SQLAlchemy
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_bcrypt import Bcrypt
@@ -29,13 +29,16 @@ class User(db.Model):
     def __repr__(self):
         return f'<User {self.email}>'
 
-
 @app.route('/')
+def default():
+    return redirect(url_for('home'))
+
+@app.route('/home')
 def home():
     email = session.get('email')
     return render_template('home_page.html', email=email)
 
-@app.route('/index')
+@app.route('/index', methods=['GET', 'POST'])
 def index():
     return render_template('index.html')
 
@@ -102,10 +105,16 @@ def login():
         return jsonify({"success": False, "message": "An unexpected error occurred"}), 500
 
 
+@app.route('/about_us')
+def about_us_page():
+    return render_template('about_us.html')
+
 @app.route('/logout')
 def logout():
     session.clear()  # Clear the session
     return redirect(url_for('home'))  # Redirect to home page
+
+
 
 if __name__ == '__main__':
     with app.app_context():
