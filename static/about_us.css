@@ -1,0 +1,83 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #F5F1F1;
+    color: #555;
+    overflow-x: hidden;
+}
+
+.logo img {
+    max-width: 120px;
+}
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: #fff7e6;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 40px;
+    z-index: 100;
+
+}
+
+.nav-link {
+  color: #000;
+  text-decoration: none;
+  padding: 25px;
+}
+
+.nav-link:hover {
+  color: #3374ff;
+}
+
+.sign-in-btn {
+    background: #4D2C61;
+    color: white;
+    padding: 10px 25px;
+    border: none;
+    border-radius: 25px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.sign-in-btn:hover {
+    background-color: #5849d2;
+}
+
+.home {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Center the content horizontally */
+    align-items: center;    /* Center the content vertically */
+    padding: 80px 40px;
+    background: #fff7e6;
+    min-height: 600px;
+    text-align: left; /* Default alignment for text */
+}
+
+.content {
+    max-width: 100%; /* Allow full-width content */
+    display: flex;
+    flex-direction: column; /* Stack elements vertically */
+    align-items: flex-start; /* Align other elements to the left */
+    text-align: left; /* Text starts from the left */
+}
+
+.content h1 {
+    width: 100%; /* Ensures the <h1> spans the entire width */
+    text-align: center; /* Center-aligns the text inside the <h1> */
+    font-size: 3rem;
+    margin-bottom: 20px;
+    line-height: 1.4;
+}
+
+
