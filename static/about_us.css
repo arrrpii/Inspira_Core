@@ -6,13 +6,9 @@
 
 body {
     font-family: 'Arial', sans-serif;
-    background-color: #F5F1F1;
+    background-color: #fff7e6;
     color: #555;
     overflow-x: hidden;
-}
-
-.logo img {
-    max-width: 120px;
 }
 
 .header {
@@ -24,10 +20,15 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 40px;
+    padding: 0px 40px;
     z-index: 100;
 
 }
+
+.logo img {
+    max-width: 120px;
+}
+
 
 .nav-link {
   color: #000;
@@ -53,29 +54,43 @@ body {
     background-color: #5849d2;
 }
 
-.home {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center; /* Center the content horizontally */
-    align-items: center;    /* Center the content vertically */
-    padding: 80px 40px;
-    background: #fff7e6;
-    min-height: 600px;
-    text-align: left; /* Default alignment for text */
+main {
+  padding: 20px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.about {
+  margin-top: 110px;
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.about h1 {
+  font-size: 2.5em;
+  margin-bottom: 20px;
+}
+
+.about p {
+  font-size: 1.2em;
+}
+
+.logo_insp {
+  width: 80px;
+  margin-top: 20px;
 }
 
 .content {
-    max-width: 100%; /* Allow full-width content */
-    display: flex;
-    flex-direction: column; /* Stack elements vertically */
-    align-items: flex-start; /* Align other elements to the left */
-    text-align: left; /* Text starts from the left */
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
 }
 
-.content h1 {
-    width: 100%; /* Ensures the <h1> spans the entire width */
-    text-align: center; /* Center-aligns the text inside the <h1> */
-    font-size: 3rem;
-    margin-bottom: 20px;
-    line-height: 1.4;
+article h2 {
+  font-size: 1.8em;
+  margin-bottom: 10px;
+}
+
+article p {
+  font-size: 1em;
 }

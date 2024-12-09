@@ -16,8 +16,6 @@ app.config['SESSION_COOKIE_SECURE'] = True
 app.config['SESSION_COOKIE_SAMESITE'] = 'Lax'
 
 
-
-
 db = SQLAlchemy(app)
 bcrypt = Bcrypt(app)
 
@@ -49,7 +47,6 @@ def register():
             data = request.get_json()
         else:
             data = request.form
-
         email = data.get('email')
         password = data.get('password')
         confirm_password = data.get('confirm_password')
@@ -113,7 +110,6 @@ def about_us_page():
 def logout():
     session.clear()  # Clear the session
     return redirect(url_for('home'))  # Redirect to home page
-
 
 
 if __name__ == '__main__':

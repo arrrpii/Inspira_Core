@@ -2,21 +2,22 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Inspira - About Us</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='about_us.css') }}">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Inspira</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='about_us.css') }}">
 </head>
 <body>
-    <header class="header">
-    <div class="logo">
-        <img src="{{ url_for('static', filename='images/logo.png') }}" class="logo" alt="Inspira Logo">
-    </div>
-    <nav class="nav">
-        <a href="/home" class="nav-link">Home</a>
-        <a href="#" class="nav-link">Courses</a>
-        <a href="#" class="nav-link">Quizzes</a>
-        <a href="/about_us" class="nav-link">About us</a>
-        <a href="#" class="nav-link">Contact us</a>
-    </nav>
+  <header class="header">
+        <div class="logo">
+            <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Inspira Logo">
+        </div>
+        <nav class="nav">
+            <a href="/home" class="nav-link">Home</a>
+            <a href="#" class="nav-link">Courses</a>
+            <a href="#" class="nav-link">Quizzes</a>
+            <a href="/about_us" class="nav-link">About us</a>
+            <a href="#" class="nav-link">Contact us</a>
+        </nav>
         {% if email %}
             <div class="user-info">
                 <span>Welcome, {{ email }}</span>
@@ -30,11 +31,47 @@
             </a>
         {% endif %}
     </header>
-    <section class="home">
-        <div class="content">
-            <h1>About Inspira</h1>
-
-        </div>
+  <main>
+    <section class="about">
+      <h1>About Inspira</h1>
+      <p>
+        Inspira is an innovative educational platform tailored for Armenian-speaking students, alumni, and professionals. We empower learners by offering structured courses, expert-led lectures, and interactive tools to master career-specific skills.
+        Inspira bridges the gap between formal education and professional advancement, enabling users to achieve their goals and thrive in an evolving job market.
+      </p>
+      <img src="static/images/logo.png" alt="Inspira Logo" class="logo_insp">
     </section>
+    <section class="content">
+      <article>
+        <h2>Our Students</h2>
+        <p>
+          Our platform serves motivated learners at all stages of their professional journey—from university students seeking advanced knowledge to career changers exploring new paths. Inspira provides a supportive environment for those eager to excel in their fields or transition confidently into new roles.
+        </p>
+      </article>
+      <article>
+        <h2>Our Goals</h2>
+        <p>
+          At Inspira, our goal is to provide accessible, high-quality learning resources in the Armenian language. By equipping our users with real-world skills and industry-relevant expertise, we aim to foster a community of professionals prepared to tackle challenges and excel in competitive industries.
+        </p>
+      </article>
+      <article>
+        <h2>Our Methodology</h2>
+        <p>
+          We combine innovative teaching methods with user-centric design. Inspira offers video lectures, interactive quizzes, and structured learning paths. These tools ensure practical knowledge retention and seamless learning experiences, tailored to each user's professional needs.
+        </p>
+      </article>
+      <article>
+        <h2>Our Mission</h2>
+        <p>
+          To empower Armenian-speaking learners with specialized, career-focused education. We are committed to fostering lifelong learning and professional growth through accessible, relevant, and practical resources.
+        </p>
+      </article>
+      <article>
+        <h2>Our Vision</h2>
+        <p>
+          Our vision is to create a future where every Armenian-speaking professional has the tools and support to achieve their career aspirations. We strive to build a skilled workforce that contributes to Armenia's development and thrives in a globalized world.
+        </p>
+      </article>
+    </section>
+  </main>
 </body>
 </html>
