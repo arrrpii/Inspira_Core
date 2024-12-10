@@ -1,6 +1,5 @@
 from flask import Flask, request, jsonify, render_template, session, redirect, url_for
 from flask_sqlalchemy import SQLAlchemy
-from werkzeug.security import generate_password_hash, check_password_hash
 from flask_bcrypt import Bcrypt
 from datetime import timedelta
 from flask import Flask, request, jsonify, render_template, session, redirect, url_for
@@ -104,7 +103,8 @@ def login():
 
 @app.route('/about_us')
 def about_us_page():
-    return render_template('about_us.html')
+    email = session.get('email')
+    return render_template('about_us.html', email=email)
 
 @app.route('/logout')
 def logout():
@@ -112,9 +112,15 @@ def logout():
     return redirect(url_for('home'))  # Redirect to home page
 
 
+@app.route('/contact')
+def contact():
+    email = session.get('email')
+    return render_template('contact.html', email=email)
+
+
+
+
 if __name__ == '__main__':
     with app.app_context():
         db.create_all()
     app.run(debug=True)
-
-a

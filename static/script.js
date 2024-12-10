@@ -7,4 +7,3 @@ document.querySelectorAll('a').forEach(link => {
         }
     });
 });
-a
