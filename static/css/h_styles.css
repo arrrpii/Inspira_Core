@@ -30,6 +30,9 @@ a {
     z-index: 100;
 
 }
+.login{
+    justify-content: right;
+}
 
 .logo img {
     max-width: 120px;
@@ -59,7 +62,18 @@ a {
     background-color: #5849d2;
 }
 
-/* Home Section */
+.login-btn{
+    color: black;
+    padding: 10px 25px;
+    border: none;
+    border-radius: 25px;
+    font-size: 16px;
+    cursor: pointer;
+    text-align: right;
+}
+.sign-in-btn:hover {
+    background-color: #5849d2;
+}
 .home {
     display: flex;
     flex-wrap: wrap;

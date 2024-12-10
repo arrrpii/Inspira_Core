@@ -112,6 +112,10 @@ def contact():
     email = session.get('email')
     return render_template('contact.html', email=email)
 
+@app.route('/course_home')
+def course_home_page():
+    email = session.get('email')
+    return render_template('course_home.html', email=email)
 @app.route('/logout')
 def logout():
     session.clear()  # Clear the session

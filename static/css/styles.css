@@ -19,19 +19,17 @@ html, body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 20px;
   text-align: center;
 }
 
 .logo {
-  width: 100px;
+  width: 150px;
   margin-bottom: 20px;
 }
-
-.left-section p {
-  font-size: 20px;
-  color: #1a1a1a;
-  line-height: 1.5;
+h2 {
+    font-size: 30px;
+    font-weight: normal;
+    text-align: left;
 }
 
 .right-section {
