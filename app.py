@@ -107,8 +107,8 @@ def about_us_page():
     email = session.get('email')
     return render_template('about_us.html', email=email)
 
-@app.route('/contact_us')
-def contact_us():
+@app.route('/contact')
+def contact():
     email = session.get('email')
     return render_template('contact.html', email=email)
 
