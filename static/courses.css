@@ -1,0 +1,158 @@
+/* Body and Overall Layout */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f5e3c8; /* Light beige background */
+}
+
+/* Header styles */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color:#f5e3c8 ; /* Deep purple background */
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #f5e3c8; /* Deep purple background */
+}
+
+header .logo {
+    display: flex;
+    align-items: center;
+}
+
+header .logo img {
+    height: 40px;
+    margin-right: 10px;
+}
+
+header .logo span {
+    font-size: 24px;
+    font-weight: bold;
+    color: #FFF; /* White text */
+}
+
+header nav {
+    display: flex;
+    align-items: center;
+}
+
+header nav a {
+    margin-right: 20px;
+    text-decoration: none;
+    color: black; /* Set the default text color to black */
+    font-size: 17px; /* Adjust the font size as needed */
+    transition: color 0.4s ease-in-out; /* Add transition effect */
+}
+
+
+header nav a:hover {
+    color: #d1601a; /* Dark purple on hover */
+}
+header nav a:nth-child(2) {
+    color: #d1601a; /* Set the second link (Courses) to orange */
+}
+
+#username {
+    background-color: #F2D3B2; /* Light beige */
+    color: #430855; /* Deep purple text */
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#username:hover {
+    background-color: #430855; /* Deep purple on hover */
+    color: white;
+}
+
+header .user-profile button {
+    background-color: #430855; /* Deep purple button */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Main content styles */
+main {
+    padding: 20px;
+}
+
+h1 {
+    font-size: 36px;
+    margin-bottom: 10px;
+}
+
+p {
+    margin-bottom: 20px;
+}
+
+button {
+    background-color: #430855;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.rating-info {
+    display: flex;
+    margin-bottom: 20px;
+}
+
+.rating-info span {
+    margin-right: 10px;
+}
+
+.tabs {
+    display: flex;
+    margin-bottom: 20px;
+}
+
+.tab {
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+.tab.active {
+    background-color: #430855;
+    color: #fff;
+}
+
+.tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+.skills {
+    margin-bottom: 20px;
+}
+
+.skills h4 {
+    margin-bottom: 10px;
+}
+
+.skills ul {
+    list-style: none;
+    padding: 0;
+}
+
+.skills ul li {
+    margin-bottom: 5px;
+}
