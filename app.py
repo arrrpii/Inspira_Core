@@ -47,6 +47,7 @@ def register():
             data = request.get_json()
         else:
             data = request.form
+
         email = data.get('email')
         password = data.get('password')
         confirm_password = data.get('confirm_password')
@@ -104,7 +105,8 @@ def login():
 
 @app.route('/about_us')
 def about_us_page():
-    return render_template('about_us.html')
+    email = session.get('email')
+    return render_template('about_us.html', email=email)
 
 @app.route('/logout')
 def logout():
@@ -112,9 +114,8 @@ def logout():
     return redirect(url_for('home'))  # Redirect to home page
 
 
+
 if __name__ == '__main__':
     with app.app_context():
         db.create_all()
     app.run(debug=True)
-
-a
