@@ -14,7 +14,6 @@ a {
     text-decoration: none;
     color: inherit;
 }
-/* Header */
 .header {
     position: fixed;
     top: 0;
@@ -72,10 +71,10 @@ a {
     margin-bottom: 20px;
 }
 
-/* Hero Content */
+
 .hero-content {
     max-width: 600px;
-    text-align: right; /* Centered text and button */
+    text-align: right;
 }
 
 .hero-content h1 {
@@ -94,7 +93,7 @@ a {
     margin-bottom: 30px;
 }
 
-/* Start Button */
+
 .start-btn {
     background-color: #fbb03b;
     color: #fff;
@@ -106,9 +105,9 @@ a {
     transition: background-color 0.3s ease;
     align-items: center;
     display: flex;
-    flex-direction: column; /* Stack content vertically */
-    justify-content: center; /* Vertically center */
-    text-align: center; /* Center text */
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
 }
 
 .start-btn:hover {
@@ -118,7 +117,7 @@ a {
 
 @media screen and (max-width: 768px) {
     .container {
-        flex-direction: column; /* Stack content on smaller screens */
+        flex-direction: column;
     }
 
     .hero-content {
