@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact us</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='contact.css') }}">
+</head>
+<body>
+<a href="/contact">
+    <button>Contact Us</button>
+</a>
+
+<header class="header">
+        <div class="logo">
+            <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Inspira Logo">
+        </div>
+        <nav class="nav">
+            <a href="/home" class="nav-link">Home</a>
+            <a href="#" class="nav-link">Courses</a>
+            <a href="#" class="nav-link">Quizzes</a>
+            <a href="/about_us" class="nav-link">About us</a>
+            <a href="/contact" class="nav-link">Contact us</a>
+        </nav>
+        {% if email %}
+            <div class="user-info">
+                <span>Welcome, {{ email }}</span>
+                <a href="/logout">
+                    <button class="sign-in-btn">Logout</button>
+                </a>
+            </div>
+        {% else %}
+            <a href="/index">
+                <button class="sign-in-btn">Sign Up</button>
+            </a>
+        {% endif %}
+    </header>
+        <main>
+    <section class="contact">
+        <h1>Contact Us</h1>
+        <p>1 Paruyr Sevak St, Yerevan, Armenia</p>
+        <p>Email: contact@inspira.com</p>
+        <p>Phone: +374-77-28-88-88</p>
+
+        <!-- Embedded Google Map -->
+        <div style="width: 100%; height: 450px;">
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3047.318289699028!2d44.54300647547191!3d40.201982268682364!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x406aa32a0e5323ef%3A0x437b0da9810e7845!2s1%20Paruyr%20Sevak%20St%2C%20Yerevan!5e0!3m2!1sen!2sam!4v1733779933609!5m2!1sen!2sam"
+                width="100%"
+                height="450"
+                style="border:0;"
+                allowfullscreen=""
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+        </div>
+    </section>
+</main>
+
+    </body>
+</html>
+
+
