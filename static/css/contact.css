@@ -121,3 +121,30 @@ body {
             color: #333;
             margin: 5px 0;
         }
+
+        .footer {
+    background-color: #333;
+    color: white;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    padding: 40px 20px;
+    text-align: left;
+}
+
+.footer h4 {
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+}
+
+.footer a {
+    color: #ddd;
+    margin-bottom: 10px;
+    display: block;
+}
+
+.footer-column {
+    padding: 0 20px;
+}
+.footer p{
+    margin-bottom: 20px;
+}

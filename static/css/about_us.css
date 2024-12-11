@@ -54,45 +54,69 @@ body {
     background-color: #5849d2;
 }
 
-main {
-  padding: 20px;
-  max-width: 900px;
-  margin: 0 auto;
-}
-
-.about {
-  margin-top: 110px;
-  text-align: center;
-  margin-bottom: 40px;
-}
-
-.about h1 {
-  font-size: 2.5em;
-  margin-bottom: 20px;
-}
-
-.about p {
-  font-size: 1.2em;
-}
-
 .logo_insp {
-  width: 80px;
+  width: 200px;
   margin-top: 20px;
 }
-
-.content {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 20px;
+.container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            text-align: center;
 }
 
-article h2 {
-  font-size: 1.8em;
-  margin-bottom: 10px;
+h1 {
+            font-size: 36px;
+            color: #5f4598;
 }
 
-article p {
-  font-size: 1em;
+.pi {
+            font-size: 18px;
+            line-height: 1.6;
+            margin-bottom: 20px;
 }
 
+.section {
+            margin: 30px 0;
+            text-align: left;
+}
 
+.section h2 {
+            font-size: 24px;
+            color: #5f4598;
+            margin-bottom: 10px;
+}
+
+.section p {
+            margin-bottom: 10px;
+}
+.about {
+    font-size: 50px;
+}
+
+.footer {
+    background-color: #333;
+    color: white;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    padding: 40px 20px;
+    text-align: left;
+}
+
+.footer h4 {
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+}
+
+.footer a {
+    color: #ddd;
+    margin-bottom: 10px;
+    display: block;
+}
+
+.footer-column {
+    padding: 0 20px;
+}
+.footer p{
+    margin-bottom: 20px;
+}
