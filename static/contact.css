@@ -53,24 +53,66 @@ body {
 .sign-in-btn:hover {
     background-color: #5849d2;
 }
+ .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 50px;
+        }
 
-main {
-  padding: 20px;
-  max-width: 900px;
-  margin: 0 auto;
-}
+        .contact-form {
+            flex: 1 1 300px;
+            max-width: 400px;
+            margin-right: 20px;
+        }
 
-.contact {
-  margin-top: 110px;
-  text-align: center;
-  margin-bottom: 40px;
-}
-.contact iframe {
-    border: 0;
-    width: 100%;
-    height: 450px;
-    margin-top: 20px;
-}
+        .contact-form h1 {
+            color: #5f4598;
+            margin-bottom: 20px;
+        }
 
+        .contact-form input,
+        .contact-form textarea,
+        .contact-form button {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 20px;
+        }
 
+        .contact-form button {
+            background-color: #d84a92;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            border: none;
+        }
 
+        .contact-form button:hover {
+            background-color: #b83779;
+        }
+
+        .map-section {
+            flex: 1 1 300px;
+            max-width: 500px;
+            text-align: center;
+        }
+
+        .map-section iframe {
+            width: 100%;
+            height: 300px;
+            border: 0;
+            border-radius: 10px;
+        }
+
+        .map-section h2 {
+            color: #5f4598;
+            margin-top: 20px;
+            font-size: 20px;
+        }
+
+        .map-section p {
+            color: #333;
+            margin: 5px 0;
+        }
