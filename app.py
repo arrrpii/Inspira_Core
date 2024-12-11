@@ -121,7 +121,6 @@ def logout():
     session.clear()  # Clear the session
     return redirect(url_for('home'))  # Redirect to home page
 
-
 if __name__ == '__main__':
     with app.app_context():
         db.create_all()
