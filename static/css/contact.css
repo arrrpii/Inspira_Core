@@ -53,7 +53,7 @@ body {
 .sign-in-btn:hover {
     background-color: #5849d2;
 }
- .container {
+  .container {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
@@ -81,8 +81,13 @@ body {
             border-radius: 20px;
         }
 
+        .contact-form input,
+        .contact-form textarea {
+            font-family: Arial, sans-serif;
+        }
+
         .contact-form button {
-            background-color: #d84a92;
+            background-color: #5f4598;
             color: white;
             font-size: 16px;
             cursor: pointer;
@@ -90,7 +95,7 @@ body {
         }
 
         .contact-form button:hover {
-            background-color: #b83779;
+            background-color: #5f4598;
         }
 
         .map-section {
