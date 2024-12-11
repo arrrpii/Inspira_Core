@@ -3,40 +3,64 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home 1 - Inspira</title>
-    <link rel="stylesheet" href="home.css">
+    <title>Inspira - Home</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/course_home.css') }}">
 </head>
 <body>
-    <header>
+    <!-- Header -->
+    <header class="header">
         <div class="logo">
-            <img src="your-logo.png" alt="Inspira Logo">
-            <span>Inspira</span>
+            <img src="{{ url_for('static', filename='images/logo.png') }}" alt="AAA">
         </div>
-        <nav>
-                        
+        <nav class="nav">
             <a href="/home" class="nav-link">Home</a>
-            <a href="/courses" class="nav-link">Courses</a>
-            <a href="/quizzes" class="nav-link">Quizzes</a>
-            <a href="/about_us" class="nav-link">About Us</a>            
-            <a href="#">Contact Us</a>
+            <a href="/course_home" class="nav-link active">Courses</a>
+            <a href="#" class="nav-link">Quizzes</a>
+            <a href="/about_us" class="nav-link">About us</a>
+            <a href="/contact" class="nav-link">Contact us</a>
         </nav>
-        <div class="user-profile">
-            <button class="username">username</button>
-        </div>
+        {% if email %}
+            <div class="user-info">
+                <span>Welcome, {{ email }}</span>
+                <a href="/logout">
+                    <button class="sign-in-btn">Logout</button>
+                </a>
+            </div>
+        {% else %}
+            <a href="/index">
+                <button class="sign-in-btn">Sign Up</button>
+            </a>
+        {% endif %}
     </header>
-    
-    
-
-    <div class="hero">
-        <div class="content">
-            <h1>This Is Where<br><span>Your Journey</span> Starts</h1>
-            <p>"Complete account of the system and expound e actual Contrary to <br> popular belief, Lorem Ipsum is not simply andom text. It has <br> roots""Complete account of the system and expound e actual <br>Contrary to popular belief, Lorem Ipsum is not simply andom text. <br> It has roots"</p>
-            <button id="startButton">Start</button>
-        </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <div class="container">
         <div class="illustration">
-            <img src="pordz/aa.jpg" alt="Image description">
-            
-     
-    <script src="home.js"></script>
+            <img src="{{ url_for('static', filename='images/course_home.png') }}" alt="AAA">
+        </div>
+        <div class="hero-content">
+            <h1>
+                This Is Where <br>
+                <span class="highlight">Your Journey</span> Starts
+            </h1>
+            <p>
+                Discover a variety of engaging and interactive courses designed to help you grow your skills
+                and achieve your goals. Whether you’re a beginner or an expert, we have something tailored just for you.
+                Start learning today and unlock new opportunities!
+            </p>
+            <br>
+            <br>
+            <br>
+            <br>
+            <button class="start-btn">Start</button>
+        </div>
+
+    </div>
+
 </body>
 </html>
+
+

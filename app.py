@@ -107,11 +107,15 @@ def about_us_page():
     email = session.get('email')
     return render_template('about_us.html', email=email)
 
-@app.route('/contact_us')
-def contact_us():
+@app.route('/contact')
+def contact():
     email = session.get('email')
     return render_template('contact.html', email=email)
 
+@app.route('/course_home')
+def course_home_page():
+    email = session.get('email')
+    return render_template('course_home.html', email=email)
 @app.route('/logout')
 def logout():
     session.clear()  # Clear the session

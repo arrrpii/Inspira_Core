@@ -9,6 +9,7 @@ html, body {
 .container {
   display: flex;
   height: 100vh;
+  overflow: hidden;
 }
 
 
@@ -24,15 +25,16 @@ html, body {
 }
 
 .logo {
-  width: 100px;
+  width: 150px;
   margin-bottom: 20px;
 }
 
-.left-section p {
-  font-size: 20px;
-  color: #1a1a1a;
-  line-height: 1.5;
+h2 {
+    font-size: 30px;
+    font-weight: normal;
+    text-align: left;
 }
+
 
 .right-section {
   flex: 1;
@@ -50,14 +52,15 @@ h1 {
   margin-bottom: 20px;
 }
 
-.sign-up-form {
+.sign-in-form {
   width: 100%;
   max-width: 400px;
   display: flex;
   flex-direction: column;
 }
 
-input[type="text"], input[type="email"], input[type="password"] {
+
+input[type="email"], input[type="password"] {
   width: 100%;
   padding: 10px;
   margin: 10px 0;
@@ -66,7 +69,22 @@ input[type="text"], input[type="email"], input[type="password"] {
   font-size: 16px;
 }
 
-.sign-up-btn {
+
+.options {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 10px 0;
+}
+
+.options a {
+  color: #6b5a85;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+
+.sign-in-btn {
   background-color: #6b5a85;
   color: #ffffff;
   padding: 10px;
@@ -74,19 +92,32 @@ input[type="text"], input[type="email"], input[type="password"] {
   border-radius: 5px;
   cursor: pointer;
   font-size: 16px;
+}
+
+
+.social-login {
+  text-align: center;
+  margin: 20px 0;
+}
+
+.social-login p {
   margin: 10px 0;
+  color: #6b5a85;
 }
 
-.sign-up-btn:hover {
-  background-color: #5c4a73;
+.social-icons img {
+  width: 30px;
+  margin: 0 10px;
+  cursor: pointer;
 }
 
-.sign-in {
+
+.sign-up {
   text-align: center;
   margin-top: 20px;
 }
 
-.sign-in a {
+.sign-up a {
   color: #6b5a85;
   text-decoration: none;
   font-weight: bold;

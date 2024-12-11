@@ -1,11 +1,10 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inspira - Home</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='h_styles.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/h_styles.css') }}">
 </head>
 <body>
     <!-- Header -->
@@ -15,10 +14,10 @@
         </div>
         <nav class="nav">
             <a href="/home" class="nav-link">Home</a>
-            <a href="#" class="nav-link">Courses</a>
+            <a href="/course_home" class="nav-link">Courses</a>
             <a href="#" class="nav-link">Quizzes</a>
             <a href="/about_us" class="nav-link">About us</a>
-            <a href="/contact_us" class="nav-link">Contact us</a>
+            <a href="/contact" class="nav-link">Contact us</a>
         </nav>
         {% if email %}
             <div class="user-info">
@@ -28,9 +27,13 @@
                 </a>
             </div>
         {% else %}
-            <a href="/index">
-                <button class="sign-in-btn">Sign Up</button>
+            <a href="/login">
+                <button class="login-btn">Login</button>
             </a>
+            <div class = login> <a href="/index">
+                <button class="sign-in-btn">Sign Up</button>
+            </a></div>
+
         {% endif %}
 
 
@@ -124,6 +127,5 @@
 <script src="{{ url_for('static', filename='js/script.js') }}"></script>
 </body>
 </html>
-
 
 

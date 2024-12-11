@@ -1,65 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inspira Courses</title>
-    <link rel="stylesheet" href="project.css">
-    <script src="project.css" defer></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/course_list.css') }}">
 </head>
 <body>
-    <header>
+    <header class="header">
         <div class="logo">
-            <img src="your-logo.png" alt="Inspira Logo">
-            <span>Inspira</span>
+            <img src="{{ url_for('static', filename='images/logo.png') }}" alt="AAA">
         </div>
-        <nav>
-                        
+        <nav class="nav">
             <a href="/home" class="nav-link">Home</a>
-            <a href="/courses" class="nav-link">Courses</a>
-            <a href="/quizzes" class="nav-link">Quizzes</a>
-            <a href="/about_us" class="nav-link">About Us</a>            
-            <a href="#">Contact Us</a>
+            <a href="/course" class="nav-link">Courses</a>
+            <a href="#" class="nav-link">Quizzes</a>
+            <a href="/about_us" class="nav-link">About us</a>
+            <a href="/contact" class="nav-link">Contact us</a>
         </nav>
-        <div class="user-profile">
-            <button class="username">username</button>
-        </div>
+        {% if email %}
+            <div class="user-info">
+                <span>Welcome, {{ email }}</span>
+                <a href="/logout">
+                    <button class="sign-in-btn">Logout</button>
+                </a>
+            </div>
+        {% else %}
+            <a href="/index">
+                <button class="sign-in-btn">Sign Up</button>
+            </a>
+        {% endif %}
     </header>
 
     <main>
-        <section class="courses-section">
-            <h1>Our Courses</h1>
-            <p>Lorem Ipsum is simply dummy text of the printing.</p>
-            
-            <div class="filter-bar">
-                <button class="filter-btn" id="all">All</button>
-                <div class="dropdown">
-                    <button class="filter-btn">Categories</button>
-                    <div class="dropdown-menu">
-                        <ul>
-                            <li>Math</li>
-                            <li>Science</li>
-                            <li>Art</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
+        <h1>Our Courses</h1>
+        <p>Learn from the bests to achieve the best</p>
 
+        <div class="content">
+            <div class="search-bar">
+                <button>All</button>
+                <select>
+                    <option value="all">Categories</option>
+                    <option value="Programming">Programming</option>
+                    <option value="Business">Business</option>
+                    <option value="Design">Design</option>
+                </select>
             </div>
+        </div>
+
             <div class="courses-grid">
                 <div class="course-card">
-                    <img src="course-image1.jpg" alt="Course 1">
+                    <img src="{{ url_for('static', filename='images/course1.jpg') }}" alt="Course1">
                     <h2>Mathematics for CS</h2>
                     <p><span>22hr 30min</span> | <span>34 Courses</span> | <span>250 Participants</span></p>
                     <a href="courses.html" class="join-btn">
                         <button class="join-course-btn">Join Course</button>
                     </a>
                 </div>
-            
+
                 <div class="course-card">
-                    
-                    <img src="course-image1.jpg" alt="Course 1">
+                    <img src="{{ url_for('static', filename='images/course2.jpg') }}" alt="Course2">
                     <h2>Mathematics for CS</h2>
                     <p><span>22hr 30min</span> | <span>34 Courses</span> | <span>250 Participants</span></p>
                     <a href="courses.html" class="join-btn">
@@ -67,39 +67,39 @@
                     </a>
 
                 </div>
-            
+
                 <div class="course-card">
-                    <img src="course-image3.jpg" alt="Course 3">
+                    <img src="{{ url_for('static', filename='images/course3.jpg') }}" alt="Course3">
                     <h2>Software Engineering Principles</h2>
                     <p><span>22hr 30min</span> | <span>34 Courses</span> | <span>250 Participants</span></p>
-                    <a href="courses.html" class="join-btn">
+                    <a href="course_main.html" class="join-btn">
                         <button class="join-course-btn">Join Course</button>
                     </a>
                 </div>
-            
+
                 <div class="course-card">
-                    <img src="course-image4.jpg" alt="Course 4">
-                    <h2>Fundamentals of Business Strategy</h2>
+                    <img src="{{ url_for('static', filename='images/course4.jpg') }}" alt="Course4">
+                    <h2>Fundamentals of Business</h2>
                     <p><span>22hr 30min</span> | <span>34 Courses</span> | <span>250 Participants</span></p>
-                    <a href="courses.html" class="join-btn">
+                    <a href="course_main.html" class="join-btn">
                         <button class="join-course-btn">Join Course</button>
                     </a>
                 </div>
-            
+
                 <div class="course-card">
-                    <img src="course-image5.jpg" alt="Course 5">
+                    <img src="{{ url_for('static', filename='images/course5.jpg') }}" alt="Course5">
                     <h2>The Art of Illustration</h2>
                     <p><span>22hr 30min</span> | <span>34 Courses</span> | <span>250 Participants</span></p>
-                    <a href="courses.html" class="join-btn">
+                    <a href="course_main.html" class="join-btn">
                         <button class="join-course-btn">Join Course</button>
                     </a>
                 </div>
-            
+
                 <div class="course-card">
-                    <img src="course-image6.jpg" alt="Course 6">
+                    <img src="{{ url_for('static', filename='images/course6.jpg') }}" alt="Course6">
                     <h2>Physics Made Simple</h2>
                     <p><span>22hr 30min</span> | <span>34 Courses</span> | <span>250 Participants</span></p>
-                    <a href="courses.html" class="join-btn">
+                    <a href="course_main.html" class="join-btn">
                         <button class="join-course-btn">Join Course</button>
                     </a>
                 </div>
@@ -111,9 +111,10 @@
     <footer>
         <p>&copy; 2024 Inspira. All rights reserved.</p>
     </footer>
+
+    <script src="{{ url_for('static', filename='js/course_list.js') }}"></script>
 </body>
 </html>
 
 
-<link rel="stylesheet" href="project.css">
-<script src="project.js" defer></script>
+
