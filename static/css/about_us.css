@@ -31,13 +31,13 @@ body {
 
 
 .nav-link {
-    color: #000;
-    text-decoration: none;
-    padding: 25px;
+  color: #000;
+  text-decoration: none;
+  padding: 25px;
 }
 
-.nav-link:hover, .nav-link.active {
-    color: #3374ff;
+.nav-link:hover {
+  color: #3374ff;
 }
 
 .button-container {
@@ -107,8 +107,8 @@ body {
 }
 
 .logo_insp {
-    width: 200px;
-    margin-top: 20px;
+  width: 200px;
+  margin-top: 20px;
 }
 .container {
     max-width: 800px;

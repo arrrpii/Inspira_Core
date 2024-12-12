@@ -18,7 +18,6 @@
             <a href="/about_us" class="nav-link">About us</a>
             <a href="/contact" class="nav-link">Contact us</a>
         </nav>
-
         {% if username %}
         <div class="user-info">
             <div class="dropdown">
@@ -43,49 +42,80 @@
 
     </header>
   <main>
-    <section class="about">
-      <h1>About Inspira</h1>
-      <p>
-        Inspira is an innovative educational platform tailored for Armenian-speaking students, alumni, and professionals. We empower learners by offering structured courses, expert-led lectures, and interactive tools to master career-specific skills.
-        Inspira bridges the gap between formal education and professional advancement, enabling users to achieve their goals and thrive in an evolving job market.
-      </p>
+    <div class="container">
+        <br>
+        <br>
+        <br>
+        <br>
+        <p class="about" >About <b>Inspira</b></p>
+        <br>
+        <br>
+        <p class="pi">
+            Inspira is an innovative educational platform tailored for Armenian-speaking students, alumni, and professionals. We empower learners by offering structured courses, expert-led lectures, and interactive tools to master career-specific skills. Inspira bridges the gap between formal education and professional advancement, enabling users to achieve their goals and thrive in an evolving job market.
+        </p>
+
       <img src="static/images/logo.png" alt="Inspira Logo" class="logo_insp">
-    </section>
-    <section class="content">
-      <article>
-        <h2>Our Students</h2>
-        <p>
-          Our platform serves motivated learners at all stages of their professional journey—from university students seeking advanced knowledge to career changers exploring new paths. Inspira provides a supportive environment for those eager to excel in their fields or transition confidently into new roles.
-        </p>
-      </article>
-      <article>
-        <h2>Our Goals</h2>
-        <p>
-          At Inspira, our goal is to provide accessible, high-quality learning resources in the Armenian language. By equipping our users with real-world skills and industry-relevant expertise, we aim to foster a community of professionals prepared to tackle challenges and excel in competitive industries.
-        </p>
-      </article>
-      <article>
-        <h2>Our Methodology</h2>
-        <p>
-          We combine innovative teaching methods with user-centric design. Inspira offers video lectures, interactive quizzes, and structured learning paths. These tools ensure practical knowledge retention and seamless learning experiences, tailored to each user's professional needs.
-        </p>
-      </article>
-      <article>
-        <h2>Our Mission</h2>
-        <p>
-          To empower Armenian-speaking learners with specialized, career-focused education. We are committed to fostering lifelong learning and professional growth through accessible, relevant, and practical resources.
-        </p>
-      </article>
-      <article>
-        <h2>Our Vision</h2>
-        <p>
-          Our vision is to create a future where every Armenian-speaking professional has the tools and support to achieve their career aspirations. We strive to build a skilled workforce that contributes to Armenia's development and thrives in a globalized world.
-        </p>
-      </article>
-    </section>
+            <div class="section">
+            <h2>Our Students</h2>
+            <p class="pi">
+                Our platform serves motivated learners at all stages of their professional journey—from university students seeking advanced knowledge to career changers exploring new paths. Inspira provides a supportive environment for those eager to excel in their fields or transition confidently into new roles.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>Our Goals</h2>
+            <p class="pi">
+                At Inspira, our goal is to provide accessible, high-quality learning resources in the Armenian language. By equipping our users with real-world skills and industry-relevant expertise, we aim to foster a community of professionals prepared to tackle challenges and excel in competitive industries.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>Our Methodology</h2>
+            <p class="pi">
+                We combine innovative teaching methods with user-centric design. Inspira offers video lectures, interactive quizzes, and structured learning paths. These tools ensure practical knowledge retention and seamless learning experiences, tailored to each user's professional needs.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>Our Mission</h2>
+            <p class="pi">
+                To empower Armenian-speaking learners with specialized, career-focused education. We are committed to fostering lifelong learning and professional growth through accessible, relevant, and practical resources.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>Our Vision</h2>
+            <p class="pi">
+                Our vision is to create a future where every Armenian-speaking professional has the tools and support to achieve their career aspirations. We strive to build a skilled workforce that contributes to Armenia's development and thrives in a globalized world.
+            </p>
+        </div>
+    </div>
   </main>
-    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+ <footer class="footer">
+        <div class="footer-column">
+            <h4>Inspira</h4>
+            <p>At Inspira, we're dedicated to helping you unlock your potential with expert-led courses designed for success. Learn, grow, and achieve your goals with us—anytime, anywhere.</p>
+        </div>
+        <div class="footer-column">
+            <h4>Company</h4>
+            <a href="/about_us">About Us</a>
+            <a href="#">How to work?</a>
+            <a href="#">Popular Courses</a>
+        </div>
+        <div class="footer-column">
+            <h4>Support</h4>
+            <a href="#">FAQ</a>
+            <a href="#">Help Center</a>
+            <a href="#">Privacy</a>
+        </div>
+        <div class="footer-column">
+            <h4>Contact Info</h4>
+            <p>+374288888</p>
+            <p>inspira@gmail.com</p>
+            <p>Paruyr Sevak 1, Yerevan, Armenia</p>
+        </div>
+
+    </footer>
+<script src="{{ url_for('static', filename='js/script.js') }}"></script>
 </body>
 </html>
-
-
