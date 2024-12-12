@@ -1,9 +1,7 @@
 from flask import Flask, request, jsonify, render_template, session, redirect, url_for
 from flask_sqlalchemy import SQLAlchemy
-from werkzeug.security import generate_password_hash, check_password_hash
 from flask_bcrypt import Bcrypt
 from datetime import timedelta
-from flask import Flask, request, jsonify, render_template, session, redirect, url_for
 
 app = Flask(__name__)
 
@@ -15,17 +13,17 @@ app.config['SESSION_COOKIE_HTTPONLY'] = True
 app.config['SESSION_COOKIE_SECURE'] = True
 app.config['SESSION_COOKIE_SAMESITE'] = 'Lax'
 
-
 db = SQLAlchemy(app)
 bcrypt = Bcrypt(app)
 
 class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
+    username = db.Column(db.String(80), nullable=False)
     email = db.Column(db.String(120), unique=True, nullable=False)
     password = db.Column(db.String(200), nullable=False)
 
     def __repr__(self):
-        return f'<User {self.email}>'
+        return f'<User {self.username}>'
 
 @app.route('/')
 def default():
@@ -33,8 +31,8 @@ def default():
 
 @app.route('/home')
 def home():
-    email = session.get('email')
-    return render_template('home_page.html', email=email)
+    username = session.get('username')
+    return render_template('home_page.html', username=username)
 
 @app.route('/index', methods=['GET', 'POST'])
 def index():
@@ -47,11 +45,12 @@ def register():
             data = request.get_json()
         else:
             data = request.form
+        username = data.get('username')
         email = data.get('email')
         password = data.get('password')
         confirm_password = data.get('confirm_password')
 
-        if not email or not password or not confirm_password:
+        if not username or not email or not password or not confirm_password:
             return jsonify({'error': 'All fields are required'}), 400
 
         if password != confirm_password:
@@ -63,7 +62,7 @@ def register():
         if existing_user:
             return jsonify({'error': 'Email already exists'}), 400
 
-        new_user = User(email=email, password=hashed_password)
+        new_user = User(username=username, email=email, password=hashed_password)
         db.session.add(new_user)
         db.session.commit()
 
@@ -83,7 +82,6 @@ def login():
             data = request.get_json()
         else:
             data = request.form
-
         email = data.get('email')
         password = data.get('password')
 
@@ -94,7 +92,8 @@ def login():
         if user and bcrypt.check_password_hash(user.password, password):
             session['user_id'] = user.id
             session['email'] = user.email
-            return jsonify({"success": True, "message": "Login successful", "email": user.email}), 200
+            session['username'] = user.username
+            return jsonify({"success": True, "message": "Login successful", "email": user.email, "username": user.username}), 200
         else:
             return jsonify({"success": False, "message": "Invalid email or password"}), 401
     except Exception as e:
@@ -104,27 +103,36 @@ def login():
 
 @app.route('/about_us')
 def about_us_page():
-    email = session.get('email')
-    return render_template('about_us.html', email=email)
+    username = session.get('username')
+    return render_template('about_us.html', username=username)
 
 @app.route('/contact')
 def contact():
-    email = session.get('email')
-    return render_template('contact.html', email=email)
+    username = session.get('username')
+    return render_template('contact.html', username=username)
 
 @app.route('/course_home')
 def course_home_page():
-    email = session.get('email')
-    return render_template('course_home.html', email=email)
+    username = session.get('username')
+    return render_template('course_home.html', username=username)
+
+@app.route('/course_list')
+def course_list_page():
+    username = session.get('username')
+    return render_template('course_list.html', username=username)
+
+@app.route('/course_main')
+def course_main_page():
+    username = session.get('username')
+    return render_template('course_main.html', username=username)
+
 @app.route('/logout')
 def logout():
     session.clear()  # Clear the session
     return redirect(url_for('home'))  # Redirect to home page
 
+
 if __name__ == '__main__':
     with app.app_context():
         db.create_all()
     app.run(debug=True)
-
-
-

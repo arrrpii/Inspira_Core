@@ -19,23 +19,28 @@
             <a href="/about_us" class="nav-link">About us</a>
             <a href="/contact" class="nav-link">Contact us</a>
         </nav>
-        {% if email %}
-            <div class="user-info">
-                <span>Welcome, {{ email }}</span>
-                <a href="/logout">
-                    <button class="sign-in-btn">Logout</button>
-                </a>
+
+    {% if username %}
+        <div class="user-info">
+            <div class="dropdown">
+                <button class="dropdown-btn">Welcome, {{ username }}</button>
+                <div class="dropdown-content">
+                    <a href="/logout">Logout</a>
+                    <a href="/account">Account</a>
+                    <a href="/settings">Settings</a>
+                </div>
             </div>
-        {% else %}
+        </div>
+    {% else %}
+        <div class="button-container">
             <a href="/login">
                 <button class="login-btn">Login</button>
             </a>
-            <div class = login> <a href="/index">
+            <a href="/index">
                 <button class="sign-in-btn">Sign Up</button>
-            </a></div>
-
-        {% endif %}
-
+            </a>
+        </div>
+    {% endif %}
 
 
     </header>
@@ -127,5 +132,3 @@
 <script src="{{ url_for('static', filename='js/script.js') }}"></script>
 </body>
 </html>
-
-

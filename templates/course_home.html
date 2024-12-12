@@ -10,7 +10,7 @@
     <!-- Header -->
     <header class="header">
         <div class="logo">
-            <img src="{{ url_for('static', filename='images/logo.png') }}" alt="AAA">
+            <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Inspira Logo">
         </div>
         <nav class="nav">
             <a href="/home" class="nav-link">Home</a>
@@ -19,18 +19,29 @@
             <a href="/about_us" class="nav-link">About us</a>
             <a href="/contact" class="nav-link">Contact us</a>
         </nav>
-        {% if email %}
-            <div class="user-info">
-                <span>Welcome, {{ email }}</span>
-                <a href="/logout">
-                    <button class="sign-in-btn">Logout</button>
+
+        {% if username %}
+        <div class="user-info">
+            <div class="dropdown">
+                <button class="dropdown-btn">Welcome, {{ username }}</button>
+                <div class="dropdown-content">
+                    <a href="/logout">Logout</a>
+                    <a href="/account">Account</a>
+                    <a href="/settings">Settings</a>
+                </div>
+            </div>
+        </div>
+        {% else %}
+            <div class="button-container">
+                <a href="/login">
+                    <button class="login-btn">Login</button>
+                </a>
+                <a href="/index">
+                    <button class="sign-in-btn">Sign Up</button>
                 </a>
             </div>
-        {% else %}
-            <a href="/index">
-                <button class="sign-in-btn">Sign Up</button>
-            </a>
         {% endif %}
+
     </header>
     <br>
     <br>
@@ -55,7 +66,10 @@
             <br>
             <br>
             <br>
-            <button class="start-btn">Start</button>
+
+            <a href="/course_list">
+              <button class="start-btn">Start</button>
+            </a>
         </div>
 
     </div>
@@ -84,7 +98,8 @@
         </div>
 
     </footer>
-<script src="{{ url_for('static', filename='js/script.js') }}"></script>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
 </body>
 </html>
 

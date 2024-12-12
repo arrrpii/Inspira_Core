@@ -4,26 +4,44 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mathematics for CS Course</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/course_home.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/course_main.css') }}">
 </head>
 <body>
 
-    <header>
+    <header class="header">
         <div class="logo">
-            <img src="{{ url_for('static', filename='images/logo.png') }}" alt="AAA">
-            <span>Inspira</span>
+            <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Inspira Logo">
         </div>
-        <nav>
-                        
+        <nav class="nav">
             <a href="/home" class="nav-link">Home</a>
-            <a href="/courses" class="nav-link">Courses</a>
-            <a href="/quizzes" class="nav-link">Quizzes</a>
-            <a href="/about_us" class="nav-link">About Us</a>            
-            <a href="#">Contact Us</a>
+            <a href="/course_home" class="nav-link">Courses</a>
+            <a href="#" class="nav-link">Quizzes</a>
+            <a href="/about_us" class="nav-link">About us</a>
+            <a href="/contact" class="nav-link">Contact us</a>
         </nav>
-        <div class="user-profile">
-            <button class="username">username</button>
+
+        {% if username %}
+        <div class="user-info">
+            <div class="dropdown">
+                <button class="dropdown-btn">Welcome, {{ username }}</button>
+                <div class="dropdown-content">
+                    <a href="/logout">Logout</a>
+                    <a href="/account">Account</a>
+                    <a href="/settings">Settings</a>
+                </div>
+            </div>
         </div>
+        {% else %}
+            <div class="button-container">
+                <a href="/login">
+                    <button class="login-btn">Login</button>
+                </a>
+                <a href="/index">
+                    <button class="sign-in-btn">Sign Up</button>
+                </a>
+            </div>
+        {% endif %}
+
     </header>
 
     <main>
@@ -67,11 +85,11 @@
 
         <div class="course-details">
             <h4>Course Details</h4>
-            </div>
+        </div>
 
     </main>
-
-    <script src="courses.js"></script>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/course_main.js') }}"></script>
 
 </body>
 </html>

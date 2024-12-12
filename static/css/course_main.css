@@ -1,91 +1,277 @@
-/* Body and Overall Layout */
-body, html {
+/*!* Body and Overall Layout *!*/
+/*body, html {*/
+/*    margin: 0;*/
+/*    padding: 0;*/
+/*    font-family: Arial, sans-serif;*/
+/*    background-color: #f5e3c8; !* Light beige background *!*/
+/*}*/
+
+/*!* Header styles *!*/
+/*header {*/
+/*    display: flex;*/
+/*    justify-content: space-between;*/
+/*    align-items: center;*/
+/*    padding: 20px;*/
+/*    background-color:#f5e3c8 ; !* Deep purple background *!*/
+/*}*/
+
+/*header {*/
+/*    display: flex;*/
+/*    justify-content: space-between;*/
+/*    align-items: center;*/
+/*    padding: 20px;*/
+/*    background-color: #f5e3c8; !* Deep purple bac    kground *!*/
+/*}*/
+
+/*header .logo {*/
+/*    display: flex;*/
+/*    align-items: center;*/
+/*}*/
+
+/*header .logo img {*/
+/*    height: 40px;*/
+/*    margin-right: 10px;*/
+/*}*/
+
+/*header .logo span {*/
+/*    font-size: 24px;*/
+/*    font-weight: bold;*/
+/*    color: #FFF; !* White text *!*/
+/*}*/
+
+/*header nav {*/
+/*    display: flex;*/
+/*    align-items: center;*/
+/*}*/
+
+/*header nav a {*/
+/*    margin-right: 20px;*/
+/*    text-decoration: none;*/
+/*    color: black; !* Set the default text color to black *!*/
+/*    font-size: 17px; !* Adjust the font size as needed *!*/
+/*    transition: color 0.4s ease-in-out; !* Add transition effect *!*/
+/*}*/
+
+
+/*header nav a:hover {*/
+/*    color: #d1601a; !* Dark purple on hover *!*/
+/*}*/
+/*header nav a:nth-child(2) {*/
+/*    color: #d1601a; !* Set the second link (Courses) to orange *!*/
+/*}*/
+
+/*#username {*/
+/*    background-color: #F2D3B2; !* Light beige *!*/
+/*    color: #430855; !* Deep purple text *!*/
+/*    padding: 10px 20px;*/
+/*    border: none;*/
+/*    border-radius: 5px;*/
+/*    cursor: pointer;*/
+/*}*/
+
+/*#username:hover {*/
+/*    background-color: #430855; !* Deep purple on hover *!*/
+/*    color: white;*/
+/*}*/
+
+/*header .user-profile button {*/
+/*    background-color: #430855; !* Deep purple button *!*/
+/*    color: white;*/
+/*    padding: 10px 20px;*/
+/*    border: none;*/
+/*    border-radius: 5px;*/
+/*    cursor: pointer;*/
+/*}*/
+
+/*!* Main content styles *!*/
+/*main {*/
+/*    padding: 20px;*/
+/*}*/
+
+/*h1 {*/
+/*    font-size: 36px;*/
+/*    margin-bottom: 10px;*/
+/*}*/
+
+/*p {*/
+/*    margin-bottom: 20px;*/
+/*}*/
+
+/*button {*/
+/*    background-color: #430855;*/
+/*    color: #fff;*/
+/*    border: none;*/
+/*    padding: 10px 20px;*/
+/*    border-radius: 5px;*/
+/*    cursor: pointer;*/
+/*}*/
+
+/*.rating-info {*/
+/*    display: flex;*/
+/*    margin-bottom: 20px;*/
+/*}*/
+
+/*.rating-info span {*/
+/*    margin-right: 10px;*/
+/*}*/
+
+/*.tabs {*/
+/*    display: flex;*/
+/*    margin-bottom: 20px;*/
+/*}*/
+
+/*.tab {*/
+/*    background-color: #f0f0f0;*/
+/*    border: 1px solid #ccc;*/
+/*    padding: 10px 20px;*/
+/*    cursor: pointer;*/
+/*}*/
+
+/*.tab.active {*/
+/*    background-color: #430855;*/
+/*    color: #fff;*/
+/*}*/
+
+/*.tab-content {*/
+/*    display: none;*/
+/*}*/
+
+/*.tab-content.active {*/
+/*    display: block;*/
+/*}*/
+
+/*.skills {*/
+/*    margin-bottom: 20px;*/
+/*}*/
+
+/*.skills h4 {*/
+/*    margin-bottom: 10px;*/
+/*}*/
+
+/*.skills ul {*/
+/*    list-style: none;*/
+/*    padding: 0;*/
+/*}*/
+
+/*.skills ul li {*/
+/*    margin-bottom: 5px;*/
+/*}*/
+
+
+* {
     margin: 0;
     padding: 0;
-    font-family: Arial, sans-serif;
-    background-color: #f5e3c8; /* Light beige background */
+    box-sizing: border-box;
 }
 
-/* Header styles */
-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px;
-    background-color:#f5e3c8 ; /* Deep purple background */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #fff7e6;
+    color: #555;
+    overflow-x: hidden;
 }
 
-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px;
-    background-color: #f5e3c8; /* Deep purple bac    kground */
-}
-
-header .logo {
-    display: flex;
-    align-items: center;
-}
-
-header .logo img {
-    height: 40px;
-    margin-right: 10px;
-}
-
-header .logo span {
-    font-size: 24px;
-    font-weight: bold;
-    color: #FFF; /* White text */
-}
-
-header nav {
-    display: flex;
-    align-items: center;
-}
-
-header nav a {
-    margin-right: 20px;
+a {
     text-decoration: none;
-    color: black; /* Set the default text color to black */
-    font-size: 17px; /* Adjust the font size as needed */
-    transition: color 0.4s ease-in-out; /* Add transition effect */
+    color: inherit;
 }
 
-
-header nav a:hover {
-    color: #d1601a; /* Dark purple on hover */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: #fff7e6;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 40px;
+    z-index: 100;
 }
-header nav a:nth-child(2) {
-    color: #d1601a; /* Set the second link (Courses) to orange */
+
+.logo img {
+    max-width: 120px;
 }
 
-#username {
-    background-color: #F2D3B2; /* Light beige */
-    color: #430855; /* Deep purple text */
-    padding: 10px 20px;
+.nav-link {
+  color: #000;
+  text-decoration: none;
+  padding: 25px;
+}
+
+.nav-link:hover, .nav-link.active {
+  color: #3374ff;
+}
+
+.button-container {
+    display: flex;
+    justify-content: flex-end; /* Align buttons to the right */
+    gap: 10px; /* Space between buttons */
+    margin-right: 10px; /* Optional: Adjust spacing from the edge */
+}
+
+.sign-in-btn {
+    background: #4D2C61;
+    color: white;
+    padding: 10px 25px;
     border: none;
-    border-radius: 5px;
+    border-radius: 25px;
+    font-size: 16px;
     cursor: pointer;
 }
 
-#username:hover {
-    background-color: #430855; /* Deep purple on hover */
+.login-btn {
+    background: #4D2C61;
     color: white;
-}
-
-header .user-profile button {
-    background-color: #430855; /* Deep purple button */
-    color: white;
-    padding: 10px 20px;
+    padding: 10px 30px;
     border: none;
-    border-radius: 5px;
+    border-radius: 25px;
+    font-size: 16px;
     cursor: pointer;
 }
 
-/* Main content styles */
+.sign-in-btn:hover, .login-btn:hover {
+    background-color: #5849d2;
+}
+
+.user-info {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-btn {
+    background: #4D2C61;
+    color: white;
+    padding: 10px 25px;
+    border: none;
+    border-radius: 25px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: white;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    min-width: 160px;
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    text-decoration: none;
+    display: block;
+    padding: 10px 15px;
+}
+
+.dropdown-content a:hover {
+    background-color: #f1f1f1;
+}
+
 main {
-    padding: 20px;
+    padding: 150px;
+    /*text-align: center;*/
 }
 
 h1 {
@@ -98,17 +284,33 @@ p {
 }
 
 button {
-    background-color: #430855;
+    /*background-color: #430855;
     color: #fff;
     border: none;
     padding: 10px 20px;
     border-radius: 5px;
+    cursor: pointer;*/
+
+    padding: 12px 30px;
+    background-color: #4D2C61;
+    color: white;
+    border: none;
+    border-radius: 50px;
     cursor: pointer;
+    font-size: 16px;
 }
 
 .rating-info {
-    display: flex;
-    margin-bottom: 20px;
+    /*display: flex;*/
+    margin-top: 30px;
+    padding: 12px 30px;
+    box-shadow: 0px 5px lightgrey;
+    background-color: #FFFFFFFF;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 16px;
+
 }
 
 .rating-info span {
@@ -117,6 +319,7 @@ button {
 
 .tabs {
     display: flex;
+    margin-top: 30px;
     margin-bottom: 20px;
 }
 
@@ -138,21 +341,4 @@ button {
 
 .tab-content.active {
     display: block;
-}
-
-.skills {
-    margin-bottom: 20px;
-}
-
-.skills h4 {
-    margin-bottom: 10px;
-}
-
-.skills ul {
-    list-style: none;
-    padding: 0;
-}
-
-.skills ul li {
-    margin-bottom: 5px;
 }

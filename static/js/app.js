@@ -5,12 +5,12 @@ document.addEventListener('DOMContentLoaded', () => {
     registerForm.addEventListener('submit', async (event) => {
       event.preventDefault();
 
-      const fullname = document.getElementById('fullname').value.trim();
+      const username = document.getElementById('username').value.trim();
       const email = document.getElementById('email').value.trim();
       const password = document.getElementById('password').value.trim();
       const confirm_password = document.getElementById('confirm_password').value.trim();
 
-      if (!fullname || !email || !password || !confirm_password) {
+      if (!username || !email || !password || !confirm_password) {
         alert('All fields are required.');
         return;
       }
@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
           headers: {
             'Content-Type': 'application/json',
           },
-          body: JSON.stringify({ fullname, email, password, confirm_password }),
+          body: JSON.stringify({ username, email, password, confirm_password }),
         });
 
         if (!response.ok) {

@@ -39,8 +39,15 @@ a {
   padding: 25px;
 }
 
-.nav-link:hover .nav-link.active{
+.nav-link:hover, .nav-link.active {
   color: #3374ff;
+}
+
+.button-container {
+    display: flex;
+    justify-content: flex-end; /* Align buttons to the right */
+    gap: 10px; /* Space between buttons */
+    margin-right: 10px; /* Optional: Adjust spacing from the edge */
 }
 
 .sign-in-btn {
@@ -53,8 +60,53 @@ a {
     cursor: pointer;
 }
 
-.sign-in-btn:hover {
+.login-btn {
+    background: #4D2C61;
+    color: white;
+    padding: 10px 30px;
+    border: none;
+    border-radius: 25px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.sign-in-btn:hover, .login-btn:hover {
     background-color: #5849d2;
+}
+
+.user-info {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-btn {
+    background: #4D2C61;
+    color: white;
+    padding: 10px 25px;
+    border: none;
+    border-radius: 25px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: white;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    min-width: 160px;
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    text-decoration: none;
+    display: block;
+    padding: 10px 15px;
+}
+
+.dropdown-content a:hover {
+    background-color: #f1f1f1;
 }
 
 main {

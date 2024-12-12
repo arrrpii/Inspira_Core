@@ -9,27 +9,38 @@
 <body>
     <header class="header">
         <div class="logo">
-            <img src="{{ url_for('static', filename='images/logo.png') }}" alt="AAA">
+            <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Inspira Logo">
         </div>
         <nav class="nav">
             <a href="/home" class="nav-link">Home</a>
-            <a href="/course" class="nav-link">Courses</a>
+            <a href="/course_home" class="nav-link">Courses</a>
             <a href="#" class="nav-link">Quizzes</a>
             <a href="/about_us" class="nav-link">About us</a>
             <a href="/contact" class="nav-link">Contact us</a>
         </nav>
-        {% if email %}
-            <div class="user-info">
-                <span>Welcome, {{ email }}</span>
-                <a href="/logout">
-                    <button class="sign-in-btn">Logout</button>
+
+        {% if username %}
+        <div class="user-info">
+            <div class="dropdown">
+                <button class="dropdown-btn">Welcome, {{ username }}</button>
+                <div class="dropdown-content">
+                    <a href="/logout">Logout</a>
+                    <a href="/account">Account</a>
+                    <a href="/settings">Settings</a>
+                </div>
+            </div>
+        </div>
+        {% else %}
+            <div class="button-container">
+                <a href="/login">
+                    <button class="login-btn">Login</button>
+                </a>
+                <a href="/index">
+                    <button class="sign-in-btn">Sign Up</button>
                 </a>
             </div>
-        {% else %}
-            <a href="/index">
-                <button class="sign-in-btn">Sign Up</button>
-            </a>
         {% endif %}
+
     </header>
 
     <main>
@@ -53,7 +64,7 @@
                     <img src="{{ url_for('static', filename='images/course1.jpg') }}" alt="Course1">
                     <h2>Mathematics for CS</h2>
                     <p><span>22hr 30min</span> | <span>34 Courses</span> | <span>250 Participants</span></p>
-                    <a href="courses.html" class="join-btn">
+                    <a href="/course_main" class="join-btn">
                         <button class="join-course-btn">Join Course</button>
                     </a>
                 </div>
@@ -62,7 +73,7 @@
                     <img src="{{ url_for('static', filename='images/course2.jpg') }}" alt="Course2">
                     <h2>Mathematics for CS</h2>
                     <p><span>22hr 30min</span> | <span>34 Courses</span> | <span>250 Participants</span></p>
-                    <a href="courses.html" class="join-btn">
+                    <a href="/course_main" class="join-btn">
                         <button class="join-course-btn">Join Course</button>
                     </a>
 
@@ -72,7 +83,7 @@
                     <img src="{{ url_for('static', filename='images/course3.jpg') }}" alt="Course3">
                     <h2>Software Engineering Principles</h2>
                     <p><span>22hr 30min</span> | <span>34 Courses</span> | <span>250 Participants</span></p>
-                    <a href="course_main.html" class="join-btn">
+                    <a href="/course_main" class="join-btn">
                         <button class="join-course-btn">Join Course</button>
                     </a>
                 </div>
@@ -81,7 +92,7 @@
                     <img src="{{ url_for('static', filename='images/course4.jpg') }}" alt="Course4">
                     <h2>Fundamentals of Business</h2>
                     <p><span>22hr 30min</span> | <span>34 Courses</span> | <span>250 Participants</span></p>
-                    <a href="course_main.html" class="join-btn">
+                    <a href="/course_main" class="join-btn">
                         <button class="join-course-btn">Join Course</button>
                     </a>
                 </div>
@@ -90,7 +101,7 @@
                     <img src="{{ url_for('static', filename='images/course5.jpg') }}" alt="Course5">
                     <h2>The Art of Illustration</h2>
                     <p><span>22hr 30min</span> | <span>34 Courses</span> | <span>250 Participants</span></p>
-                    <a href="course_main.html" class="join-btn">
+                    <a href="/course_main" class="join-btn">
                         <button class="join-course-btn">Join Course</button>
                     </a>
                 </div>
@@ -99,7 +110,7 @@
                     <img src="{{ url_for('static', filename='images/course6.jpg') }}" alt="Course6">
                     <h2>Physics Made Simple</h2>
                     <p><span>22hr 30min</span> | <span>34 Courses</span> | <span>250 Participants</span></p>
-                    <a href="course_main.html" class="join-btn">
+                    <a href="/course_main" class="join-btn">
                         <button class="join-course-btn">Join Course</button>
                     </a>
                 </div>
@@ -112,6 +123,7 @@
         <p>&copy; 2024 Inspira. All rights reserved.</p>
     </footer>
 
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
     <script src="{{ url_for('static', filename='js/course_list.js') }}"></script>
 
 </body>
