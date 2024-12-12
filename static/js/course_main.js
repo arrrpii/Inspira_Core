@@ -6,3 +6,4 @@ const categories = document.querySelector('.course-categories');
 showCategoriesButton.addEventListener('click', () => {
     categories.classList.toggle('show');
 });
+
