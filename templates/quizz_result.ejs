@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Recommended Course</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/course_home.css') }}">
+</head>
+<body>
+    <header class="header">
+        <div class="logo">
+            <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Inspira Logo">
+        </div>
+        <nav class="nav">
+            <a href="/home" class="nav-link">Home</a>
+            <a href="/course_home" class="nav-link">Courses</a>
+            <a href="#" class="nav-link">Quizzes</a>
+            <a href="/about_us" class="nav-link">About us</a>
+            <a href="/contact" class="nav-link">Contact us</a>
+        </nav>
+
+        {% if username %}
+        <div class="user-info">
+            <div class="dropdown">
+                <button class="dropdown-btn">Welcome, {{ username }}</button>
+                <div class="dropdown-content">
+                    <a href="/logout">Logout</a>
+                    <a href="/account">Account</a>
+                    <a href="/settings">Settings</a>
+                </div>
+            </div>
+        </div>
+        {% else %}
+            <div class="button-container">
+                <a href="/login">
+                    <button class="login-btn">Login</button>
+                </a>
+                <a href="/index">
+                    <button class="sign-in-btn">Sign Up</button>
+                </a>
+            </div>
+        {% endif %}
+    </header>
+    <br>
+    <br>
+    <br>
+    <br>
+    <main>
+        <div class="container">
+            <h1>Course Recommendation Result</h1>
+            <div class="result-container">
+                <!-- Display the recommended course -->
+                <h2>Your Recommended Course is: <span>{{ recommended_course }}</span></h2>
+                <p>We hope this course aligns with your interests. Good luck!</p>
+                <br>
+                <br>
+                <br>    
+                <h3>For knowing more about our courses please <a href="/index" style="color:slateblue;">Signup</a> or <a href="/login" style="color:slateblue;">Login</a> to know about our features!</h3>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

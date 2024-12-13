@@ -128,9 +128,24 @@ def course_main_page():
 
 @app.route('/logout')
 def logout():
-    session.clear()  # Clear the session
-    return redirect(url_for('home'))  # Redirect to home page
+    session.clear()  
+    return redirect(url_for('home'))  
 
+
+@app.route('/quiz_page')
+def quiz_page():
+    username = session.get('username')
+    return render_template('quiz_page.ejs', username=username)
+
+@app.route('/quiz_result')
+def quiz_result():
+    username = session.get('username')  
+    
+    recommended_course = request.args.get('recommended_course', session.get('recommended_course'))
+    if not recommended_course:
+        recommended_course = "No course recommended"
+    
+    return render_template('quizz_result.ejs', username=username, recommended_course=recommended_course)
 
 if __name__ == '__main__':
     with app.app_context():
