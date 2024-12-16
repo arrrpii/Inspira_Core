@@ -7,3 +7,4 @@ showCategoriesButton.addEventListener('click', () => {
     categories.classList.toggle('show');
 });
 
+
