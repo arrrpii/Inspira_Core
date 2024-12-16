@@ -6,26 +6,32 @@
     <title>Inspira - Home</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/h_styles.css') }}">
 </head>
-<body>
+<body id="body" style="display:none">
     <!-- Header -->
     <header class="header">
         <div class="logo">
-            <img src="{{ url_for('static', filename='images/logo.png') }}" alt="AAA">
+            <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Inspira Logo">
         </div>
         <nav class="nav">
-            <a href="/home" class="nav-link">Home</a>
+            <a href="/home" class="nav-link active">Home</a>
             <a href="/course_home" class="nav-link">Courses</a>
-            <a href="/quiz_page" class="nav-link">Quizzes</a>
+            <a href="/quiz_home" class="nav-link">Quizzes</a>
             <a href="/about_us" class="nav-link">About us</a>
             <a href="/contact" class="nav-link">Contact us</a>
         </nav>
+
+    <select id="language-switcher" onchange="changeLanguage()">
+        <option value="en" {% if lang == 'en' %}selected{% endif %}>ENG</option>
+        <option value="hy" {% if lang == 'hy' %}selected{% endif %}>Հայ</option>
+    </select>
+
 
     {% if username %}
         <div class="user-info">
             <div class="dropdown">
                 <button class="dropdown-btn">Welcome, {{ username }}</button>
                 <div class="dropdown-content">
-                    <a href="/logout">Logout</a>
+                    <a href="/logout">Log out</a>
                     <a href="/account">Account</a>
                     <a href="/settings">Settings</a>
                 </div>
@@ -34,10 +40,12 @@
     {% else %}
         <div class="button-container">
             <a href="/login">
-                <button class="login-btn">Login</button>
+{#                <button class="login-btn">Log in</button>#}
+                <button class="login-btn">{{ t.buttons.log_in }}</button>
             </a>
             <a href="/index">
-                <button class="sign-in-btn">Sign Up</button>
+{#                <button class="sign-in-btn">Sign Up</button>#}
+                <button class="sign-in-btn">{{ t.buttons.sign_up }}</button>
             </a>
         </div>
     {% endif %}
@@ -48,17 +56,27 @@
     <!-- Home Section -->
     <section class="home">
         <div class="content">
-            <h1>The <span class="highlight">Smart</span> Choice For <span class="highlight">Future</span></h1>
-            <p class="tagline">Take the next step in your career with top-tier courses designed to equip you for success in an ever-evolving world.</p>
+{#            <h1>The <span class="highlight">Smart</span> Choice For <span class="highlight">Future</span></h1>#}
+{#            <p class="tagline">Take the next step in your career with top-tier courses designed to equip you for success in an ever-evolving world.</p>#}
+            <h1>{{ t.title }}</h1>
+            <p>{{ t.subtitle }}</p>
             <div class="search-bar">
-                <input type="text" placeholder="Search for a course...">
-                <select>
-                    <option value="all">All Categories</option>
-                    <option value="Programming">Programming</option>
-                    <option value="Business">Business</option>
-                    <option value="Design">Design</option>
+{#                <input type="text" placeholder="Search for a course...">#}
+{#                <select id="categorySelect">#}
+{#                    <option value="all">All Categories</option>#}
+{#                    <option value="Programming">Programming</option>#}
+{#                    <option value="Business">Business</option>#}
+{#                    <option value="Design">Design</option>#}
+{#                </select>#}
+{#                    <button id="continueButton">Continue</button>#}
+                <input type="text" placeholder="{{ t.search_placeholder }}">
+                <select id="categorySelect">
+                    <option value="all">{{ t.all_categories }}</option>
+                    <option value="Programming">{{ t.programming }}</option>
+                    <option value="Business">{{ t.business }}</option>
+                    <option value="Design">{{ t.design }}</option>
                 </select>
-                <button>Continue</button>
+                <button id="continueButton">{{ t.continue }}</button>
             </div>
         </div>
         <div class="illustration">
@@ -129,7 +147,24 @@
         </div>
 
     </footer>
-<script src="{{ url_for('static', filename='js/script.js') }}"></script>
+    <script type="text/javascript">
+        window.onload = function () {
+            setTimeout(function() {
+                document.getElementById("body").style.display = "";
+            }, 10);
+        }
+    </script>
+
+    <script>
+        function changeLanguage() {
+            const lang = document.getElementById("language-switcher").value; // Get selected value
+            const url = new URL(window.location.href); // Get current URL
+            url.searchParams.set("lang", lang); // Add or update the 'lang' query parameter
+            window.location.href = url; // Reload the page with the updated URL
+        }
+    </script>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
 </body>
 </html>
 

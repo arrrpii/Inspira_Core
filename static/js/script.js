@@ -23,6 +23,15 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 
+// Code for all courses in home
 
+document.getElementById("continueButton").addEventListener("click", function () {
+    const selectedValue = document.getElementById("categorySelect").value;
+    if (selectedValue === "all") {
+        window.location.href = "/course_list";
+    } else {
+        alert("Please select 'All Categories' to continue."); // Optional prompt
+    }
+});
 
 

@@ -43,11 +43,8 @@
 //
 // joinButtons.forEach(button => {
 //     button.addEventListener('click', () => {
-//         const courseId = button.getAttribute('data-course-id');
+//         const courseId = button.getAttribute(0'data-course-id');
 //         joinCourse(courseId);
 //     });
 // });
-
-
-
 

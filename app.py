@@ -25,6 +25,38 @@ class User(db.Model):
     def __repr__(self):
         return f'<User {self.username}>'
 
+
+translations = {
+    "en": {
+        "title": "The Smart Choice For Future",
+        "subtitle": "Take the next step in your career with top-tier courses...",
+        "search_placeholder": "Search for a course...",
+        "all_categories": "All Categories",
+        "programming": "Programminng",
+        "business": "Business",
+        "design": "Design",
+        "continue": "Continue",
+        "buttons": {
+                    "log_in": "Log In",
+                    "sign_up": "Sign Up"
+                }
+    },
+    "hy": {
+        "title": "ԼԱՎԱԳՈՒՅՆ ԸՆՏՐՈՒԹՅՈՒՆԸ ՁԵՐ ԱՊԱԳԱՅԻ ՀԱՄԱՐ",
+        "subtitle": "Նախորդ քայլը դեպի ձեր կարիերան՝ բարձրորակ դասընթացներով...",
+        "search_placeholder": "Որոնել դասընթաց...",
+        "all_categories": "Բոլոր բաժինները",
+        "programming": "Ծրագրավորում",
+        "business": "Բիզնես",
+        "design": "Դիզայն",
+        "continue": "Շարունակել",
+        "buttons": {
+                    "log_in": "Մուտք գործել",
+                    "sign_up": "Գրանցվել"
+                }
+    },
+}
+
 @app.route('/')
 def default():
     return redirect(url_for('home'))
@@ -32,7 +64,8 @@ def default():
 @app.route('/home')
 def home():
     username = session.get('username')
-    return render_template('home_page.html', username=username)
+    lang = request.args.get("lang", "en")
+    return render_template('home_page.html', lang=lang, username=username, t=translations.get(lang, translations["en"]))
 
 @app.route('/index', methods=['GET', 'POST'])
 def index():
@@ -126,6 +159,28 @@ def course_main_page():
     username = session.get('username')
     return render_template('course_main.html', username=username)
 
+
+@app.route('/quiz_home')
+def quiz_home():
+    username = session.get('username')
+    return render_template('quiz_home.html', username=username)
+
+@app.route('/quiz_page')
+def quiz_page():
+    username = session.get('username')
+    return render_template('quiz_page.ejs', username=username)
+
+
+@app.route('/quiz_result')
+def quiz_result():
+    username = session.get('username')
+
+    recommended_course = request.args.get('recommended_course', session.get('recommended_course'))
+    if not recommended_course:
+        recommended_course = "No course recommended"
+
+    return render_template('quizz_result.ejs', username=username, recommended_course=recommended_course)
+
 @app.route('/logout')
 def logout():
     session.clear()  
@@ -151,4 +206,3 @@ if __name__ == '__main__':
     with app.app_context():
         db.create_all()
     app.run(debug=True)
-

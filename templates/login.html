@@ -6,7 +6,7 @@
   <title>Sign In</title>
   <link rel="stylesheet" href="{{ url_for('static', filename='css/styleslog.css') }}">
 </head>
-<body>
+<body id="body" style="display:none">
   <div class="container">
     <div class="left-section">
       <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Inspira Logo" class="logo">
@@ -67,6 +67,14 @@ loginForm.addEventListener('submit', async (e) => {
     }
 });
   </script>
+
+    <script type="text/javascript">
+        window.onload = function () {
+            setTimeout(function() {
+                document.getElementById("body").style.display = "";
+            }, 10);
+        }
+    </script>
 </body>
 </html>
 

@@ -6,7 +6,7 @@
     <title>Mathematics for CS Course</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/course_main.css') }}">
 </head>
-<body>
+<body id="body" style="display:none">
 
     <header class="header">
         <div class="logo">
@@ -14,8 +14,8 @@
         </div>
         <nav class="nav">
             <a href="/home" class="nav-link">Home</a>
-            <a href="/course_home" class="nav-link">Courses</a>
-            <a href="#" class="nav-link">Quizzes</a>
+            <a href="/course_home" class="nav-link active">Courses</a>
+            <a href="/quiz_home" class="nav-link">Quizzes</a>
             <a href="/about_us" class="nav-link">About us</a>
             <a href="/contact" class="nav-link">Contact us</a>
         </nav>
@@ -25,7 +25,7 @@
             <div class="dropdown">
                 <button class="dropdown-btn">Welcome, {{ username }}</button>
                 <div class="dropdown-content">
-                    <a href="/logout">Logout</a>
+                    <a href="/logout">Log out</a>
                     <a href="/account">Account</a>
                     <a href="/settings">Settings</a>
                 </div>
@@ -34,7 +34,7 @@
         {% else %}
             <div class="button-container">
                 <a href="/login">
-                    <button class="login-btn">Login</button>
+                    <button class="login-btn">Log in</button>
                 </a>
                 <a href="/index">
                     <button class="sign-in-btn">Sign Up</button>
@@ -88,6 +88,15 @@
         </div>
 
     </main>
+
+    <script type="text/javascript">
+        window.onload = function () {
+            setTimeout(function() {
+                document.getElementById("body").style.display = "";
+            }, 10);
+        }
+    </script>
+
     <script src="{{ url_for('static', filename='js/script.js') }}"></script>
     <script src="{{ url_for('static', filename='js/course_main.js') }}"></script>
 

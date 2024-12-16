@@ -3,10 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Recommended Course</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/course_home.css') }}">
+    <title>Inspira - Home</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/quiz_home.css') }}">
 </head>
 <body id="body" style="display:none">
+    <!-- Header -->
     <header class="header">
         <div class="logo">
             <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Inspira Logo">
@@ -40,27 +41,45 @@
                 </a>
             </div>
         {% endif %}
+
     </header>
     <br>
     <br>
     <br>
     <br>
-    <main>
-        <div class="container">
-            <h1>Course Recommendation Result</h1>
-            <div class="result-container">
-                <!-- Display the recommended course -->
-                <h2>Your Recommended Course is: <span>{{ recommended_course }}</span></h2>
-                <p>We hope this course aligns with your interests. Good luck!</p>
+    <br>
+    <div class="container">
+
+        <div class="hero-content">
+            <h1>
+                QUIZ
+                <span class="highlight">NOW</span> !
+            </h1>
+            <p>
+                Ready to put your knowledge to the test? Dive into our collection of the fun
+                and challenging quizzes across a wide variety of topics.
                 <br>
                 <br>
-                <br>
-                <h3>For knowing more about our courses please <a href="/index" style="color:slateblue;">Signup</a> or <a href="/login" style="color:slateblue;">Login</a> to know about our features!</h3>
+                Whether you're a trivia master or just looking for a fun way to pass the time,
+                we have something for everyone!
+            </p>
+            <br>
+            <br>
+            <br>
+            <br>
+            <div class="button-cont">
+                <a href="/quiz_page">
+                    <button class="start-btn">Start</button>
+                </a>
             </div>
         </div>
-    </main>
 
-    <footer class="footer">
+        <div class="illustration">
+            <img src="{{ url_for('static', filename='images/quiz_home.png') }}" alt="Picture">
+        </div>
+    </div>
+
+ <footer class="footer">
         <div class="footer-column">
             <h4>Inspira</h4>
             <p>At Inspira, we're dedicated to helping you unlock your potential with expert-led courses designed for success. Learn, grow, and achieve your goals with us—anytime, anywhere.</p>
@@ -95,6 +114,5 @@
     </script>
 
     <script src="{{ url_for('static', filename='js/script.js') }}"></script>
-
 </body>
 </html>

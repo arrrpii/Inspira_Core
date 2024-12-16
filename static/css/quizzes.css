@@ -68,3 +68,30 @@ button:hover {
     font-size: 24px;
     color: #7b1fa2;
 }
+
+.footer {
+    background-color: #333;
+    color: white;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    padding: 40px 20px;
+    text-align: left;
+}
+
+.footer h4 {
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+}
+
+.footer a {
+    color: #ddd;
+    margin-bottom: 10px;
+    display: block;
+}
+
+.footer-column {
+    padding: 0 20px;
+}
+.footer p{
+    margin-bottom: 20px;
+}

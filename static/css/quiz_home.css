@@ -10,7 +10,10 @@ body {
     color: #555;
     overflow-x: hidden;
 }
-
+a {
+    text-decoration: none;
+    color: inherit;
+}
 .header {
     position: fixed;
     top: 0;
@@ -20,15 +23,13 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0px 40px;
+    padding: 0 40px;
     z-index: 100;
-
 }
 
 .logo img {
     max-width: 120px;
 }
-
 
 .nav-link {
   color: #000;
@@ -39,7 +40,6 @@ body {
 .nav-link:hover, .nav-link.active {
   color: #3374ff;
 }
-
 .button-container {
     display: flex;
     justify-content: flex-end; /* Align buttons to the right */
@@ -106,46 +106,84 @@ body {
     background-color: #f1f1f1;
 }
 
-.logo_insp {
-  width: 200px;
-  margin-top: 20px;
-}
+
+
+/* Container */
 .container {
-    max-width: 800px;
-    margin: 50px auto;
-    padding: 20px;
-    text-align: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 100px 20px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
-h1 {
-    font-size: 36px;
-    color: #5f4598;
-}
-
-.pi {
-    font-size: 18px;
-    line-height: 1.6;
-    margin-bottom: 20px;
-}
-
-.section {
-    margin: 30px 0;
+.hero-content {
+    max-width: 600px;
     text-align: left;
 }
 
-.section h2 {
-    font-size: 24px;
-    color: #5f4598;
-    margin-bottom: 10px;
+.hero-content h1 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 20px;
 }
 
-.section p {
-    margin-bottom: 10px;
-}
-.about {
-    font-size: 50px;
+.hero-content .highlight {
+    color: #AF1724;
 }
 
+.hero-content p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 30px;
+}
+
+.illustration {
+    width: 1000px;
+    height: 500px;
+    object-fit: contain;
+    margin-bottom: 20px;
+}
+
+.illustration img{
+    width: 600px;
+    height: 400px;
+    object-fit: contain;
+
+}
+
+.button-cont {
+    display: flex;
+    justify-content: flex-end; /* Align buttons to the right */
+    gap: 10px; /* Space between buttons */
+    margin-right: 0; /* Optional: Adjust spacing from the edge */
+}
+
+.start-btn {
+    background-color: #AF1724;
+    color: #fff;
+    font-size: 1.2rem;
+    padding: 15px 40px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.start-btn:hover {
+    background-color: #C32D3B;
+}
+
+@media screen and (max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
+
+    .hero-content {
+        text-align: center;
+    }
+}
 .footer {
     background-color: #333;
     color: white;
@@ -172,3 +210,4 @@ h1 {
 .footer p{
     margin-bottom: 20px;
 }
+
