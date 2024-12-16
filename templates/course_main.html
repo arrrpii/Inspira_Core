@@ -5,10 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mathematics for CS Course</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/course_main.css') }}">
-</head>
-<body id="body" style="display:none">
 
-    <header class="header">
+</head>
+<body>
+     <header class="header">
         <div class="logo">
             <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Inspira Logo">
         </div>
@@ -46,7 +46,7 @@
 
     <main>
         <h1>Mathematics for CS</h1>
-        <p>Instructor: Anna Markosyan</p>
+        <h2>Instructor: Anna Markosyan</h2>
         <button>Enroll Now</button>
 
         <div class="rating-info">
@@ -57,39 +57,100 @@
             <span class="enrolled">31 enrolled</span>
         </div>
 
+        <!-- Tabs -->
         <div class="tabs">
-            <button class="tab active" data-tab="what-you-ll-learn">What you'll learn</button>
-            <button class="tab" data-tab="course-details">Course Details</button>
+            <button class="tab active" data-tab="hiddenContent">What you'll learn</button>
+            <button class="tab" data-tab="courseDetails">Course Details</button>
             <button class="tab" data-tab="reviews">Reviews</button>
             <button class="tab" data-tab="recommendations">Recommendations</button>
         </div>
 
-        <div class="tab-content" id="what-you-ll-learn">
+        <!-- Content Sections -->
+        <div class="tab-content active" id="hiddenContent">
             <ul>
-                <li>Discrete Mathematics: Master set theory, logic, relations, and functions as the foundation of computer science.</li>
-                <li>Graph Theory: Learn about nodes, edges, paths, and algorithms like Dijkstra's for solving graph-related problems.</li>
-                <li>Combinatorics and Probability: Understand permutations, combinations, and probability concepts applied in algorithms and cryptography.</li>
-                <li>Linear Algebra Basics: Explore matrices, vectors, and transformations relevant in machine learning and graphics.</li>
-                <li>Algorithms and Complexity: Learn mathematical tools to analyze algorithms for efficiency and correctness.</li>
+                <li><b>Discrete Mathematics</b>: Master set theory, logic, relations, and functions as the foundation of computer science.</li>
+                <li><b>Graph Theory</b>: Learn about nodes, edges, paths, and algorithms like Dijkstra's for solving graph-related problems.</li>
+                <li><b>Combinatorics and Probability</b>: Understand permutations, combinations, and probability concepts applied in algorithms and cryptography.</li>
+                <li><b>Linear Algebra Basics</b>: Explore matrices, vectors, and transformations relevant in machine learning and graphics.</li>
+                <li><b>Algorithms and Complexity</b>: Learn mathematical tools to analyze algorithms for efficiency and correctness.</li>
             </ul>
         </div>
 
+        <div class="tab-content" id="courseDetails">
+            <ul>
+                <li> <b> Level </b>: Intermediate (requires basic math knowledge)</li>
+                <li> <b> Duration </b>: 8 weeks (3-5 hours per week)</li>
+                <li> <b> Format </b>: Online, self-placed with recorded lectures and interactive assignments</li>
+                <li> <b> Prerequisites </b>: Familiarity with high-school algebra and basic programming concepts</li>
+            </ul>
+        </div>
+
+        <div class="tab-content" id="reviews">
+            <p>⭐️⭐️⭐️⭐️⭐️ <br>"This course is perfect for anyone looking to strengthen their math foundation for CS. The examples are practical and relatable." – Sarah M.
+            <br>⭐️⭐️⭐️⭐️ <br> "A bit challenging at times, but the resources provided make it manageable. Highly recommend for CS students!" – Alex T.
+            <br>⭐️⭐️⭐️⭐️⭐️ <br>"Graph theory and combinatorics sections were my favorites. I feel so much more confident tackling algorithm problems now!" – Priya R.</p>
+        </div>
+
+        <div class="tab-content" id="recommendations">
+            <b>Who Should Take This Course?</b>
+            <ul>
+                <li>Computer Science students looking to improve their theoretical knowledge.</li>
+                <li>Software engineers interested in understanding the math behind algorithms and systems.</li>
+                <li>Aspiring data scientists or AI/ML enthusiasts.</li>
+            </ul>
+
+            <b>Additional Resources:</b>
+            <ul>
+                <li>"Discrete Mathematics and Its Applications" by Kenneth H. Rosen.</li>
+                <li>Practice problem sets on Khan Academy or LeetCode for algorithm-related exercises.</li>
+                <li>Supplementary videos from MIT OpenCourseWare</li>
+            </ul>
+        </div>
+
+        <br>
         <div class="skills">
-            <h4>Skills you'll practice</h4>
+            <h2>Skills you'll practice</h2>
             <ul>
                 <li>Analytic thinking</li>
                 <li>Mathematics</li>
                 <li>Excel</li>
             </ul>
         </div>
-
-        <div class="course-details">
-            <h4>Course Details</h4>
+ <br>
+        <div class="course-materials">
+            <h2>Course Materials</h2>
+            <a class="link" href="https://www.youtube.com/watch?v=DOAbEuP9HgA" target="_blank">https://www.youtube.com/watch?v=DOAbEuP9HgA</a>
+            <br><a class="link" href="https://www.youtube.com/watch?v=tS92P9PWNfU" target="_blank">https://www.youtube.com/watch?v=tS92P9PWNfU</a>
+            <br><a class="link" href="https://www.youtube.com/watch?v=3W40tBACFbI" target="_blank">https://www.youtube.com/watch?v=3W40tBACFbI</a>
+            <br><a class="link" href="https://youtube.com/shorts/3nMTv1AzthY?si=YiTLH-0-1Y42eqLj" target="_blank">https://youtube.com/shorts/3nMTv1AzthY?si=YiTLH-0-1Y42eqLj</a>
         </div>
 
     </main>
 
-    <script type="text/javascript">
+    <!-- JavaScript -->
+    <script>
+        // Show and hide content for tabs
+        document.addEventListener("DOMContentLoaded", () => {
+            const tabs = document.querySelectorAll(".tab");
+            const contents = document.querySelectorAll(".tab-content");
+
+            tabs.forEach(tab => {
+                tab.addEventListener("click", () => {
+                    // Remove 'active' class from all tabs and contents
+                    tabs.forEach(t => t.classList.remove("active"));
+                    contents.forEach(c => c.classList.remove("active"));
+
+                    // Add 'active' class to clicked tab and target content
+                    tab.classList.add("active");
+                    const targetContent = document.getElementById(tab.getAttribute("data-tab"));
+                    if (targetContent) {
+                        targetContent.classList.add("active");
+                    }
+                });
+            });
+        });
+
+        // Make sure the body fades in
         window.onload = function () {
             setTimeout(function() {
                 document.getElementById("body").style.display = "";
@@ -97,10 +158,5 @@
         }
     </script>
 
-    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
-    <script src="{{ url_for('static', filename='js/course_main.js') }}"></script>
-
 </body>
 </html>
-
-

@@ -6,7 +6,7 @@
     <title>Your Recommended Course</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/course_home.css') }}">
 </head>
-<body id="body" style="display:none">
+<body>
     <header class="header">
         <div class="logo">
             <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Inspira Logo">
@@ -14,11 +14,10 @@
         <nav class="nav">
             <a href="/home" class="nav-link">Home</a>
             <a href="/course_home" class="nav-link">Courses</a>
-            <a href="/quiz_home" class="nav-link active">Quizzes</a>
-            <a href="/about_us" class="nav-link">About us</a>
+            <a href="/quiz_home" class="nav-link">Quizzes</a>
+            <a href="/about_us" class="nav-link active">About us</a>
             <a href="/contact" class="nav-link">Contact us</a>
         </nav>
-
         {% if username %}
         <div class="user-info">
             <div class="dropdown">
@@ -40,14 +39,19 @@
                 </a>
             </div>
         {% endif %}
+
     </header>
     <br>
     <br>
     <br>
     <br>
     <main>
-        <div class="container">
-            <h1>Course Recommendation Result</h1>
+        <br>
+        <br>
+        <br>
+        <br>
+        <h1 class="h">Course Recommendation Result</h1>
+        <div class="r_container">
             <div class="result-container">
                 <!-- Display the recommended course -->
                 <h2>Your Recommended Course is: <span>{{ recommended_course }}</span></h2>
@@ -60,7 +64,20 @@
         </div>
     </main>
 
-    <footer class="footer">
+
+
+
+    <script type="text/javascript">
+        window.onload = function () {
+            setTimeout(function() {
+                document.getElementById("body").style.display = "";
+            }, 10);
+        }
+    </script>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+
+  <footer class="footer">
         <div class="footer-column">
             <h4>Inspira</h4>
             <p>At Inspira, we're dedicated to helping you unlock your potential with expert-led courses designed for success. Learn, grow, and achieve your goals with us—anytime, anywhere.</p>
@@ -85,16 +102,5 @@
         </div>
 
     </footer>
-
-    <script type="text/javascript">
-        window.onload = function () {
-            setTimeout(function() {
-                document.getElementById("body").style.display = "";
-            }, 10);
-        }
-    </script>
-
-    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
-
 </body>
 </html>

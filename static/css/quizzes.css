@@ -3,17 +3,134 @@
     padding: 0;
     box-sizing: border-box;
 }
-
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f0f0f0;
-    color: #4A148C;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-.quiz-container {
-    max-width: 600px;
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #fff7e6;
+    color: #555;
+    overflow-x: hidden;
+}
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: #fff7e6;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 40px;
+    z-index: 100;
+
+}
+
+.logo img {
+    max-width: 120px;
+}
+
+
+.nav-link {
+  color: #000;
+  text-decoration: none;
+  padding: 30px;
+}
+
+.nav-link:hover, .nav-link.active {
+  color: #3374ff;
+}
+
+.button-container {
+    display: flex;
+    justify-content: flex-end; /* Align buttons to the right */
+    gap: 10px; /* Space between buttons */
+    margin-right: 10px; /* Optional: Adjust spacing from the edge */
+}
+
+.sign-in-btn {
+    background: #4D2C61;
+    color: white;
+    padding: 10px 25px;
+    border: none;
+    border-radius: 25px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.login-btn {
+    background: #4D2C61;
+    color: white;
+    padding: 10px 30px;
+    border: none;
+    border-radius: 25px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.sign-in-btn:hover, .login-btn:hover {
+    background-color: #5849d2;
+}
+
+.user-info {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-btn {
+    background: #4D2C61;
+    color: white;
+    padding: 10px 25px;
+    border: none;
+    border-radius: 25px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: white;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    min-width: 160px;
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    text-decoration: none;
+    display: block;
+    padding: 10px 15px;
+}
+
+.dropdown-content a:hover {
+    background-color: #f1f1f1;
+}
+
+.logo_insp {
+  width: 200px;
+  margin-top: 20px;
+}
+.container {
+    max-width: 800px;
     margin: 50px auto;
-    background-color: #fff;
+    padding: 20px;
+    text-align: center;
+}
+
+ body {
+     font-family: Arial, sans-serif;
+     line-height: 1.6;
+ }
+
+.quiz-container {
+    max-width: 800px;
+    margin: 50px auto;
+    background-color: #fff7e6;
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
@@ -31,15 +148,16 @@ h2 {
     color: #4A148C;
 }
 
-input[type="radio"] {
-    margin-right: 10px;
+.question input[type="radio"],
+.question label {
+    display: inline-block;
+    vertical-align: middle;
+    margin-bottom: 8px;
 }
 
-label {
-    font-size: 16px;
-    margin-bottom: 10px;
-    display: block;
-    cursor: pointer;
+.question label {
+    margin-left: 5px; /* Add space between button and text */
+    cursor: pointer;  /* Optional: Make label clickable */
 }
 
 button {
