@@ -44,79 +44,87 @@
     </header>
 
     <main>
+        <a href="/course_home">
+            <button style="margin-bottom: 20px;">Go Back</button>
+        </a>
+
         <h1>Our Courses</h1>
         <p>Learn from the bests to achieve the best</p>
 
-        <div class="content">
-            <div class="search-bar">
-                <button>All</button>
-                <select>
-                    <option value="all">Categories</option>
-                    <option value="Programming">Programming</option>
-                    <option value="Business">Business</option>
-                    <option value="Design">Design</option>
-                </select>
-            </div>
+    <!-- Add search bar here -->
+
+        <form method="GET" action="/search_courses">
+            <input type="text" id="search-query" name="query" placeholder="Search for a course" value="{{ request.args.get('query', '') }}">
+            <select name="category">
+                <option value="">Select Category</option>
+                <option value="Programming" {% if request.args.get('category') == 'Programming' %}selected{% endif %}>Programming</option>
+                <option value="Design" {% if request.args.get('category') == 'Design' %}selected{% endif %}>Design</option>
+                <option value="Marketing" {% if request.args.get('category') == 'Marketing' %}selected{% endif %}>Marketing</option>
+                <!-- Add other categories here -->
+            </select>
+            <button type="submit">Search</button>
+        </form>
+
+        <div class="pagination-buttons">
+            <button id="view-all-btn" class="view-all-btn" style="display: inline-block;">View All</button>
         </div>
 
-            <div class="courses-grid">
-                <div class="course-card">
-                    <img src="{{ url_for('static', filename='images/course1.jpg') }}" alt="Course1">
-                    <h2>Mathematics for CS</h2>
-                    <p><span>22hr 30min</span> | <span>34 Courses</span> | <span>250 Participants</span></p>
-                    <a href="/course_main" class="join-btn">
-                        <button class="join-course-btn">Join Course</button>
-                    </a>
-                </div>
-
-                <div class="course-card">
-                    <img src="{{ url_for('static', filename='images/course2.jpg') }}" alt="Course2">
-                    <h2>Mathematics for CS</h2>
-                    <p><span>22hr 30min</span> | <span>34 Courses</span> | <span>250 Participants</span></p>
-                    <a href="/course_main" class="join-btn">
-                        <button class="join-course-btn">Join Course</button>
-                    </a>
-
-                </div>
-
-                <div class="course-card">
-                    <img src="{{ url_for('static', filename='images/course3.jpg') }}" alt="Course3">
-                    <h2>Software Engineering Principles</h2>
-                    <p><span>22hr 30min</span> | <span>34 Courses</span> | <span>250 Participants</span></p>
-                    <a href="/course_main" class="join-btn">
-                        <button class="join-course-btn">Join Course</button>
-                    </a>
-                </div>
-
-                <div class="course-card">
-                    <img src="{{ url_for('static', filename='images/course4.jpg') }}" alt="Course4">
-                    <h2>Fundamentals of Business</h2>
-                    <p><span>22hr 30min</span> | <span>34 Courses</span> | <span>250 Participants</span></p>
-                    <a href="/course_main" class="join-btn">
-                        <button class="join-course-btn">Join Course</button>
-                    </a>
-                </div>
-
-                <div class="course-card">
-                    <img src="{{ url_for('static', filename='images/course5.jpg') }}" alt="Course5">
-                    <h2>The Art of Illustration</h2>
-                    <p><span>22hr 30min</span> | <span>34 Courses</span> | <span>250 Participants</span></p>
-                    <a href="/course_main" class="join-btn">
-                        <button class="join-course-btn">Join Course</button>
-                    </a>
-                </div>
-
-                <div class="course-card">
-                    <img src="{{ url_for('static', filename='images/course6.jpg') }}" alt="Course6">
-                    <h2>Physics Made Simple</h2>
-                    <p><span>22hr 30min</span> | <span>34 Courses</span> | <span>250 Participants</span></p>
-                    <a href="/course_main" class="join-btn">
-                        <button class="join-course-btn">Join Course</button>
-                    </a>
-                </div>
+        {% if is_admin %}
+            <div>
+                <a href="/add_course" class="btn btn-primary">Add New Course</a>
             </div>
-            <button class="view-all">View All</button>
-        </section>
+        {% endif %}
+
+
+        {% if query or category %}
+            <h3>
+                {% if query %}Results for "{{ query }}"{% endif %}
+                {% if query and category %} in {% endif %}
+                {% if category %}"{{ category }}"{% endif %}
+            </h3>
+            {% if courses_found %}
+                <h4>Found {{ courses|length }} courses</h4>
+            {% else %}
+                <h4>No courses found</h4>
+            {% endif %}
+        {% endif %}
+
+        <div id="courses-container" class="courses-grid">
+            {% for course in courses %}
+            <div class="course-card">
+                <img src="{{ url_for('static', filename=course.image_url) }}" alt="{{ course.name }}">
+                <h2>{{ course.name }}</h2>
+                <p>
+                    <span>{{ course.duration }}</span> |
+                    <span>{{ course.num_courses }} Courses</span> |
+                    <span>{{ course.participants }} Participants</span>
+                </p>
+                {% if is_admin %}
+                <div class="admin-buttons">
+                    <a href="/edit_course/{{ course.id }}" class="edit-course-btn">Edit</a>
+                    <form action="/delete_course/{{ course.id }}" method="POST" style="display:inline;">
+                        <button type="submit" class="delete-course-btn" onclick="return confirm('Are you sure you want to delete this course?')">Delete</button>
+                    </form>
+                </div>
+                {% else %}
+                <a href="/course_main/{{ course.id }}" class="join-btn">
+                    <button class="join-course-btn">Join Course</button>
+                </a>
+                {% endif %}
+            </div>
+            {% endfor %}
+        </div>
+
+    <div class="pagination-buttons">
+        <button id="load-more-btn" class="load-more-btn" style="display: inline-block;">Load More</button>
+    </div>
+
+{#    {% if show_buttons %}#}
+{#        <div class="pagination-buttons" {% if not courses_found %}style="display: none;"{% endif %}>#}
+{#            <button id="load-more-btn" class="load-more-btn">Load More</button>#}
+{#        </div>#}
+{#    {% endif %}#}
+
     </main>
 
     <footer>
@@ -134,11 +142,9 @@
     <script src="{{ url_for('static', filename='js/script.js') }}"></script>
     <script src="{{ url_for('static', filename='js/course_list.js') }}"></script>
 
+    <script type="text/javascript">
+        var isAdmin = {{ is_admin | tojson }};  // Pass the value of is_admin to JS
+    </script>
+
 </body>
 </html>
-
-
-
-
-
-
