@@ -56,27 +56,20 @@
     <!-- Home Section -->
     <section class="home">
         <div class="content">
-{#            <h1>The <span class="highlight">Smart</span> Choice For <span class="highlight">Future</span></h1>#}
-{#            <p class="tagline">Take the next step in your career with top-tier courses designed to equip you for success in an ever-evolving world.</p>#}
             <h1>{{ t.title }}</h1>
             <p>{{ t.subtitle }}</p>
             <div class="search-bar">
-{#                <input type="text" placeholder="Search for a course...">#}
-{#                <select id="categorySelect">#}
-{#                    <option value="all">All Categories</option>#}
-{#                    <option value="Programming">Programming</option>#}
-{#                    <option value="Business">Business</option>#}
-{#                    <option value="Design">Design</option>#}
-{#                </select>#}
-{#                    <button id="continueButton">Continue</button>#}
-                <input type="text" placeholder="{{ t.search_placeholder }}">
-                <select id="categorySelect">
-                    <option value="all">{{ t.all_categories }}</option>
-                    <option value="Programming">{{ t.programming }}</option>
-                    <option value="Business">{{ t.business }}</option>
-                    <option value="Design">{{ t.design }}</option>
-                </select>
-                <button id="continueButton">{{ t.continue }}</button>
+                <form action="{{ url_for('search_courses') }}" method="GET">
+                    <input type="text" id="search-query" name="query" placeholder="{{ t.search_placeholder }}">
+                    <select name="category">
+                        <option value="">{{ t.all_categories }}</option>
+                        <option value="Programming">{{ t.programming }}</option>
+                        <option value="Business">{{ t.business }}</option>
+                        <option value="Design">{{ t.design }}</option>
+                        <option value="Marketing">Marketing</option>
+                    </select>
+                    <button type="submit">{{ t.continue }}</button>
+                </form>
             </div>
         </div>
         <div class="illustration">
@@ -142,7 +135,7 @@
         <div class="footer-column">
             <h4>Contact Info</h4>
             <p>+374288888</p>
-            <p>inspira@gmail.com</p>
+            <p>inspira.projet@gmail.com</p>
             <p>Paruyr Sevak 1, Yerevan, Armenia</p>
         </div>
 
