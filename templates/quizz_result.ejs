@@ -5,8 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Your Recommended Course</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/course_home.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/course_list.css') }}">
 </head>
-<body>
+<body id="body" style="display:none">
     <header class="header">
         <div class="logo">
             <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Inspira Logo">
@@ -51,21 +52,34 @@
         <br>
         <br>
         <h1 class="h">Course Recommendation Result</h1>
-        <div class="r_container">
-            <div class="result-container">
-                <!-- Display the recommended course -->
-                <h2>Your Recommended Course is: <span>{{ recommended_course }}</span></h2>
-                <p>We hope this course aligns with your interests. Good luck!</p>
-                <br>
-                <br>
-                <br>
-                <h3>For knowing more about our courses please <a href="/index" style="color:slateblue;">Signup</a> or <a href="/login" style="color:slateblue;">Login</a> to know about our features!</h3>
+        <a href="/quiz_page">
+            <button style="margin-bottom: 20px;">Go Back</button>
+        </a>
+
+        <h1>Recommended Courses</h1>
+
+        {% if courses %}
+            <div class="courses-grid">
+                {% for course in courses %}
+                    <div class="course-card">
+                        <img src="{{ url_for('static', filename=course.image_url) }}" alt="{{ course.name }}">
+                        <h2>{{ course.name }}</h2>
+                        <p>
+                            <span>{{ course.duration }}</span> |
+                            <span>{{ course.num_courses }} Courses</span> |
+                            <span>{{ course.participants }} Participants</span>
+                        </p>
+                        <a href="/course_main/{{ course.id }}" class="join-btn">
+                            <button class="join-course-btn">Join Course</button>
+                        </a>
+                    </div>
+                {% endfor %}
             </div>
-        </div>
+        {% else %}
+            <p>No course recommended</p>
+        {% endif %}
+
     </main>
-
-
-
 
     <script type="text/javascript">
         window.onload = function () {
@@ -77,7 +91,7 @@
 
     <script src="{{ url_for('static', filename='js/script.js') }}"></script>
 
-  <footer class="footer">
+    <footer class="footer">
         <div class="footer-column">
             <h4>Inspira</h4>
             <p>At Inspira, we're dedicated to helping you unlock your potential with expert-led courses designed for success. Learn, grow, and achieve your goals with us—anytime, anywhere.</p>
@@ -97,7 +111,7 @@
         <div class="footer-column">
             <h4>Contact Info</h4>
             <p>+374288888</p>
-            <p>inspira@gmail.com</p>
+            <p>inspira.projet@gmail.com</p>
             <p>Paruyr Sevak 1, Yerevan, Armenia</p>
         </div>
 
