@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/quizzes.css') }}">
 
 </head>
-<body>
+<body id="body" style="display:none">
     <header class="header">
         <div class="logo">
             <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Inspira Logo">
@@ -51,6 +51,9 @@
     <br>
     <div class="quiz-container">
         <h1>Which Course is Right for You?</h1>
+        <a href="/quiz_home">
+            <button style="margin-bottom: 20px;">Go Back</button>
+        </a>
         <form id="quizForm" >
             <div id="question-container">
                 <div class="question">
@@ -66,7 +69,7 @@
                     <input type="radio" name="q1" value="Business" id="q1e" required>
                     <label for="q1e">Business and Entrepreneurship</label><br>
                 </div>
-                
+
                 <div class="question">
                     <h2>2. Do you prefer:</h2>
                     <input type="radio" name="q2" value="Math" id="q2a" required>
@@ -80,7 +83,7 @@
                     <input type="radio" name="q2" value="Business" id="q2e" required>
                     <label for="q2e">Leading and organizing projects</label><br>
                 </div>
-                
+
                 <div class="question">
                     <h2>3. How do you approach challenges?</h2>
                     <input type="radio" name="q3" value="Math" id="q3a" required>
@@ -94,7 +97,7 @@
                     <input type="radio" name="q3" value="Business" id="q3e" required>
                     <label for="q3e">Planning and managing resources effectively</label><br>
                 </div>
-                
+
                 <div class="question">
                     <h2>4. What kind of projects do you enjoy most?</h2>
                     <input type="radio" name="q4" value="Math" id="q4a" required>
@@ -108,7 +111,7 @@
                     <input type="radio" name="q4" value="Business" id="q4e" required>
                     <label for="q4e">Starting and running a business</label><br>
                 </div>
-                
+
                 <div class="question">
                     <h2>5. Which type of environment would you prefer working in?</h2>
                     <input type="radio" name="q5" value="Math" id="q5a" required>
@@ -136,7 +139,7 @@
                     <input type="radio" name="q6" value="Business" id="q6e" required>
                     <label for="q6e">I like making sense of financial or business data</label><br>
                 </div>
-                
+
                 <div class="question">
                     <h2>7. Do you prefer theory over practice?</h2>
                     <input type="radio" name="q7" value="Math" id="q7a" required>
@@ -150,7 +153,7 @@
                     <input type="radio" name="q7" value="Business" id="q7e" required>
                     <label for="q7e">I enjoy learning how business theory applies in the real world</label><br>
                 </div>
-                
+
                 <div class="question">
                     <h2>8. Do you enjoy working with others on projects?</h2>
                     <input type="radio" name="q8" value="Math" id="q8a" required>
@@ -164,7 +167,7 @@
                     <input type="radio" name="q8" value="Business" id="q8e" required>
                     <label for="q8e">Yes, I enjoy working with teams and managing projects</label><br>
                 </div>
-                
+
                 <div class="question">
                     <h2>9. How do you deal with failure?</h2>
                     <input type="radio" name="q9" value="Math" id="q9a" required>
@@ -178,7 +181,7 @@
                     <input type="radio" name="q9" value="Business" id="q9e" required>
                     <label for="q9e">I evaluate the situation and adjust my strategy for success</label><br>
                 </div>
-                
+
                 <div class="question">
                     <h2>10. What motivates you the most?</h2>
                     <input type="radio" name="q10" value="Math" id="q10a" required>
@@ -192,7 +195,7 @@
                     <input type="radio" name="q10" value="Business" id="q10e" required>
                     <label for="q10e">The challenge of making profitable decisions and strategies</label><br>
                 </div>
-                
+
                 <div class="question">
                     <h2>11. Do you enjoy learning new programming languages?</h2>
                     <input type="radio" name="q11" value="Software" id="q11a" required>
@@ -206,7 +209,7 @@
                     <input type="radio" name="q11" value="Business" id="q11e" required>
                     <label for="q11e">I enjoy learning how technology impacts business</label><br>
                 </div>
-                
+
                 <div class="question">
                     <h2>12. Would you prefer to develop software or create designs?</h2>
                     <input type="radio" name="q12" value="Software" id="q12a" required>
@@ -220,7 +223,7 @@
                     <input type="radio" name="q12" value="Business" id="q12e" required>
                     <label for="q12e">I enjoy combining business strategy with design or tech development</label><br>
                 </div>
-                
+
                 <div class="question">
                     <h2>13. Do you like organizing teams or leading them?</h2>
                     <input type="radio" name="q13" value="Business" id="q13a" required>
@@ -248,7 +251,7 @@
                     <input type="radio" name="q14" value="Business" id="q14e" required>
                     <label for="q14e">A dynamic, fast-paced environment with lots of interaction</label><br>
                 </div>
-                
+
                 <div class="question">
                     <h2>15. Do you prefer working with physical tools or digital tools?</h2>
                     <input type="radio" name="q15" value="Math" id="q15a" required>
@@ -262,7 +265,7 @@
                     <input type="radio" name="q15" value="Business" id="q15e" required>
                     <label for="q15e">I use digital tools for analyzing and managing business data</label><br>
                 </div>
-                
+
                 <div class="question">
                     <h2>16. Do you enjoy learning about new technologies?</h2>
                     <input type="radio" name="q16" value="Software" id="q16a" required>
@@ -276,7 +279,7 @@
                     <input type="radio" name="q16" value="Business" id="q16e" required>
                     <label for="q16e">I’m interested in how new technologies can be leveraged for business growth</label><br>
                 </div>
-                
+
                 <div class="question">
                     <h2>17. How do you prefer to learn new concepts?</h2>
                     <input type="radio" name="q17" value="Math" id="q17a" required>
@@ -290,7 +293,7 @@
                     <input type="radio" name="q17" value="Business" id="q17e" required>
                     <label for="q17e">Through case studies and analyzing successful business models</label><br>
                 </div>
-                
+
                 <div class="question">
                     <h2>18. Do you prefer structured tasks or open-ended projects?</h2>
                     <input type="radio" name="q18" value="Math" id="q18a">
@@ -304,7 +307,7 @@
                     <input type="radio" name="q18" value="Business" id="q18e">
                     <label for="q18e">I like structured business projects with clear objectives</label><br>
                 </div>
-                
+
                 <div class="question">
                     <h2>19. Do you enjoy reading and researching?</h2>
                     <input type="radio" name="q19" value="Math" id="q19a">
@@ -318,7 +321,7 @@
                     <input type="radio" name="q19" value="Business" id="q19e">
                     <label for="q19e">I like reading about market trends and business strategies</label><br>
                 </div>
-                
+
                 <div class="question">
                     <h2>20. How do you feel about taking risks?</h2>
                     <input type="radio" name="q20" value="Math" id="q20a">
@@ -332,7 +335,7 @@
                     <input type="radio" name="q20" value="Business" id="q20e">
                     <label for="q20e">I’m comfortable taking business risks to create new opportunities</label><br>
                 </div>
-                
+
                 <div class="question">
                     <h2>21. Do you enjoy experimenting with new ideas?</h2>
                     <input type="radio" name="q21" value="Math" id="q21a">
@@ -346,7 +349,7 @@
                     <input type="radio" name="q21" value="Business" id="q21e">
                     <label for="q21e">Yes, I like exploring new business models and strategies</label><br>
                 </div>
-                
+
                 <div class="question">
                     <h2>22. What motivates you to achieve goals?</h2>
                     <input type="radio" name="q22" value="Math" id="q22a">
@@ -360,7 +363,7 @@
                     <input type="radio" name="q22" value="Business" id="q22e">
                     <label for="q22e">The drive to succeed and build a successful company</label><br>
                 </div>
-                
+
                 <div class="question">
                     <h2>23. How do you deal with failure?</h2>
                     <input type="radio" name="q23" value="Math" id="q23a">
@@ -374,7 +377,7 @@
                     <input type="radio" name="q23" value="Business" id="q23e">
                     <label for="q23e">I learn from my mistakes and pivot my strategy</label><br>
                 </div>
-                
+
                 <div class="question">
                     <h2>24. Do you enjoy collaborating with others?</h2>
                     <input type="radio" name="q24" value="Math" id="q24a">
@@ -388,7 +391,7 @@
                     <input type="radio" name="q24" value="Business" id="q24e">
                     <label for="q24e">Yes, I enjoy collaborating with teams to grow a business</label><br>
                 </div>
-                
+
                 <div class="question">
                     <h2>25. Which type of impact do you want to make?</h2>
                     <input type="radio" name="q25" value="Math" id="q25a">
@@ -402,7 +405,7 @@
                     <input type="radio" name="q25" value="Business" id="q25e">
                     <label for="q25e">I want to make a business that transforms industries and creates jobs</label><br>
                 </div>
-                
+
                 <div class="question">
                     <h2>26. Do you prefer following established rules or creating your own?</h2>
                     <input type="radio" name="q26" value="Math" id="q26a">
@@ -416,7 +419,7 @@
                     <input type="radio" name="q26" value="Business" id="q26e">
                     <label for="q26e">I like following business strategies, but also experimenting with new approaches</label><br>
                 </div>
-                
+
                 <div class="question">
                     <h2>27. How do you approach decision-making?</h2>
                     <input type="radio" name="q27" value="Math" id="q27a">
@@ -430,7 +433,7 @@
                     <input type="radio" name="q27" value="Business" id="q27e">
                     <label for="q27e">I rely on market data and business insights to make decisions</label><br>
                 </div>
-                
+
                 <div class="question">
                     <h2>28. Which of these subjects do you enjoy the most?</h2>
                     <input type="radio" name="q28" value="Math" id="q28a">
@@ -444,7 +447,7 @@
                     <input type="radio" name="q28" value="Business" id="q28e">
                     <label for="q28e">Entrepreneurship and business innovation</label><br>
                 </div>
-                
+
                 <div class="question">
                     <h2>29. How do you feel about abstract concepts?</h2>
                     <input type="radio" name="q29" value="Math" id="q29a">
@@ -458,7 +461,7 @@
                     <input type="radio" name="q29" value="Business" id="q29e">
                     <label for="q29e">I prefer abstract thinking when applied to business strategy and growth</label><br>
                 </div>
-                
+
                 <div class="question">
                     <h2>30. Do you enjoy learning about:</h2>
                     <input type="radio" name="q30" value="Math" id="q30a">
@@ -496,7 +499,7 @@
         <div class="footer-column">
             <h4>Contact Info</h4>
             <p>+374288888</p>
-            <p>inspira@gmail.com</p>
+            <p>inspira.projet@gmail.com</p>
             <p>Paruyr Sevak 1, Yerevan, Armenia</p>
         </div>
 
@@ -508,24 +511,24 @@
             // Ensure all questions are answered
             const questions = document.querySelectorAll('.question');
             let valid = true;
-    
+
             // Check if all questions have at least one radio button selected
             questions.forEach((question) => {
                 const radios = question.querySelectorAll('input[type="radio"]');
                 const isChecked = Array.from(radios).some(radio => radio.checked);
-                
+
                 if (!isChecked) {
                     valid = false;  // If any question isn't answered, set valid to false
                 }
             });
-    
+
             // If any question is unanswered, reload the page and show the alert
             if (!valid) {
                 alert("Please answer all questions before submitting.");
-                location.reload();  // Reload the page to give the user another chance to complete the quiz
+                // location.reload();  // Reload the page to give the user another chance to complete the quiz
                 return;  // Prevent form submission
             }
-    
+
             // If all questions are answered, calculate the course preferences
             const formElements = document.querySelectorAll('input[type="radio"]:checked');
             const courseScores = {
@@ -535,7 +538,7 @@
                 "The Art of Illustration": 0,
                 "Fundamentals of Business": 0
             };
-    
+
             formElements.forEach((element) => {
                 switch (element.value) {
                     case "Math":
@@ -555,12 +558,20 @@
                         break;
                 }
             });
-    
+
             // Find the recommended course based on the highest score
             const recommendedCourse = Object.keys(courseScores).reduce((a, b) => courseScores[a] > courseScores[b] ? a : b);
-    
+
             // Redirect to results page with the recommended course
             window.location.href = `/quiz_result?recommended_course=${recommendedCourse}`;
+        }
+    </script>
+
+    <script type="text/javascript">
+        window.onload = function () {
+            setTimeout(function() {
+                document.getElementById("body").style.display = "";
+            }, 10);
         }
     </script>
 
