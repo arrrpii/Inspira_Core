@@ -1,0 +1,393 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #fff7e6;
+    color: #555;
+    overflow-x: hidden;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.flash-messages .success {
+    color: green;
+    font-weight: bold;
+}
+
+.flash-messages .error, .flash-messages .danger {
+    color: red;
+    font-weight: bold;
+}
+
+.flash-messages .warning {
+    color: orange;
+    font-weight: bold;
+}
+
+.flash-messages .info {
+    color: blue;
+    font-weight: bold;
+}
+
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: #fff7e6;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 40px;
+    z-index: 100;
+}
+
+.logo img {
+    max-width: 120px;
+}
+
+.nav-link {
+  color: #000;
+  text-decoration: none;
+  padding: 30px;
+}
+
+.nav-link:hover, .nav-link.active {
+  color: #3374ff;
+}
+
+.button-container {
+    display: flex;
+    justify-content: flex-end; /* Align buttons to the right */
+    gap: 10px; /* Space between buttons */
+    margin-right: 10px; /* Optional: Adjust spacing from the edge */
+}
+
+.sign-in-btn {
+    background: #4D2C61;
+    color: white;
+    padding: 10px 25px;
+    border: none;
+    border-radius: 25px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.login-btn {
+    background: #4D2C61;
+    color: white;
+    padding: 10px 30px;
+    border: none;
+    border-radius: 25px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.sign-in-btn:hover, .login-btn:hover {
+    background-color: #5849d2;
+}
+
+.user-info {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-btn {
+    background: #4D2C61;
+    color: white;
+    padding: 10px 25px;
+    border: none;
+    border-radius: 25px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: white;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    min-width: 160px;
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    text-decoration: none;
+    display: block;
+    padding: 10px 15px;
+}
+
+.dropdown-content a:hover {
+    background-color: #f1f1f1;
+}
+
+main {
+    padding: 150px;
+    /*text-align: center;*/
+}
+
+h1 {
+    font-size: 36px;
+    margin-bottom: 10px;
+}
+
+p {
+    margin-bottom: 20px;
+}
+
+button {
+    padding: 12px 30px;
+    background-color: #4D2C61;
+    color: white;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.rating-info {
+    /*display: flex;*/
+    margin-top: 30px;
+    padding: 12px 30px;
+    box-shadow: 0px 5px lightgrey;
+    background-color: #FFFFFFFF;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 16px;
+
+}
+
+.rating-info span {
+    margin-right: 10px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #fff7e6;
+    color: #555;
+    overflow-x: hidden;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: #fff7e6;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 40px;
+    z-index: 100;
+}
+
+.logo img {
+    max-width: 120px;
+}
+
+.nav-link {
+  color: #000;
+  text-decoration: none;
+  padding: 30px;
+}
+
+.nav-link:hover, .nav-link.active {
+  color: #3374ff;
+}
+
+.button-container {
+    display: flex;
+    justify-content: flex-end; /* Align buttons to the right */
+    gap: 10px; /* Space between buttons */
+    margin-right: 10px; /* Optional: Adjust spacing from the edge */
+}
+
+.sign-in-btn {
+    background: #4D2C61;
+    color: white;
+    padding: 10px 25px;
+    border: none;
+    border-radius: 25px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.login-btn {
+    background: #4D2C61;
+    color: white;
+    padding: 10px 30px;
+    border: none;
+    border-radius: 25px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.sign-in-btn:hover, .login-btn:hover {
+    background-color: #5849d2;
+}
+
+.user-info {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-btn {
+    background: #4D2C61;
+    color: white;
+    padding: 10px 25px;
+    border: none;
+    border-radius: 25px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: white;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    min-width: 160px;
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    text-decoration: none;
+    display: block;
+    padding: 10px 15px;
+}
+
+.dropdown-content a:hover {
+    background-color: #f1f1f1;
+}
+
+main {
+    padding: 150px;
+}
+
+h1 {
+    font-size: 36px;
+    margin-bottom: 10px;
+}
+
+h2 {
+    margin-bottom: 20px;
+}
+
+button {
+    padding: 12px 30px;
+    background-color: #4D2C61;
+    color: white;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.rating-info {
+    margin-top: 30px;
+    padding: 12px 30px;
+    box-shadow: 0px 5px lightgrey;
+    background-color: #FFFFFFFF;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 16px;
+
+}
+
+.rating-info span {
+    margin-right: 10px;
+}
+
+.tabs {
+    display: flex;
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+
+.tab {
+    background-color: #bb2ddf;
+    border: 1px solid #ccc;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+.tab.active {
+    background-color: #430855;
+    color: #fff;
+}
+
+.tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+    font-size: 18px;
+    margin: 20px;
+    line-height: 30px;
+}
+
+.skills {
+    margin: 20px;
+    font-size: 18px;
+    line-height: 30px;
+}
+
+.course-materials {
+    margin: 20px;
+    line-height: 30px;
+    font-size: 18px;
+}
+
+.isDisabled {
+  color: currentColor;
+  cursor: not-allowed;
+  opacity: 0.5;
+  text-decoration: none;
+}
+
+.link:link {
+  color: #5b0b7a;
+  background-color: transparent;
+  text-decoration: none;
+}
+.link:visited {
+  color: #b84edf;
+  background-color: transparent;
+  text-decoration: none;
+}
+.link:hover {
+  color: #000000;
+  background-color: transparent;
+  text-decoration: underline;
+}
+.link:active {
+  color: #8019d3;
+  background-color: transparent;
+  text-decoration: underline;
+}
+
+

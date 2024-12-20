@@ -1,0 +1,175 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #fff7e6;
+    color: #555;
+    overflow-x: hidden;
+}
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: #fff7e6;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 40px;
+    z-index: 100;
+
+}
+
+.logo img {
+    max-width: 120px;
+}
+
+
+.nav-link {
+  color: #000;
+  text-decoration: none;
+  padding: 30px;
+}
+
+.nav-link:hover, .nav-link.active {
+  color: #3374ff;
+}
+
+.button-container {
+    display: flex;
+    justify-content: flex-end; /* Align buttons to the right */
+    gap: 10px; /* Space between buttons */
+    margin-right: 10px; /* Optional: Adjust spacing from the edge */
+}
+
+.sign-in-btn {
+    background: #4D2C61;
+    color: white;
+    padding: 10px 25px;
+    border: none;
+    border-radius: 25px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.login-btn {
+    background: #4D2C61;
+    color: white;
+    padding: 10px 30px;
+    border: none;
+    border-radius: 25px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.sign-in-btn:hover, .login-btn:hover {
+    background-color: #5849d2;
+}
+
+.user-info {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-btn {
+    background: #4D2C61;
+    color: white;
+    padding: 10px 25px;
+    border: none;
+    border-radius: 25px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: white;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    min-width: 160px;
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    text-decoration: none;
+    display: block;
+    padding: 10px 15px;
+}
+
+.dropdown-content a:hover {
+    background-color: #f1f1f1;
+}
+
+.logo_insp {
+  width: 200px;
+  margin-top: 20px;
+}
+.container {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 20px;
+    text-align: center;
+}
+
+h1 {
+    font-size: 36px;
+    color: #5f4598;
+}
+
+.pi {
+    font-size: 18px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.section {
+    margin: 30px 0;
+    text-align: left;
+}
+
+.section h2 {
+    font-size: 24px;
+    color: #5f4598;
+    margin-bottom: 10px;
+}
+
+.section p {
+    margin-bottom: 10px;
+}
+.about {
+    font-size: 50px;
+}
+
+.footer {
+    background-color: #333;
+    color: white;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    padding: 40px 20px;
+    text-align: left;
+}
+
+.footer h4 {
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+}
+
+.footer a {
+    color: #ddd;
+    margin-bottom: 10px;
+    display: block;
+}
+
+.footer-column {
+    padding: 0 20px;
+}
+.footer p{
+    margin-bottom: 20px;
+}
+
