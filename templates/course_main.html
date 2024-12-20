@@ -7,7 +7,17 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/course_main.css') }}">
 
 </head>
-<body>
+<body id="body" style="display:none">
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            <ul class="flash-messages">
+                {% for category, message in messages %}
+                    <li class="{{ category }}">{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    {% endwith %}
+
      <header class="header">
         <div class="logo">
             <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Inspira Logo">
@@ -45,16 +55,32 @@
     </header>
 
     <main>
-        <h1>Mathematics for CS</h1>
-        <h2>Instructor: Anna Markosyan</h2>
-        <button>Enroll Now</button>
+        <a href="/course_list">
+            <button style="margin-bottom: 20px;">Go Back</button>
+        </a>
+
+        <h1>{{ course.name }}</h1>
+        <h2>Instructor:{{ course.instructor }}</h2>
+
+
+            {% if enrolled %}
+                <form action="/leave_course/{{ course.id }}" method="POST">
+                <!-- If the user is enrolled, show Deactivate button -->
+                    <button type="submit" class="enroll-btn" onclick="return confirm('Are you sure you want to deactivate this course?')">Leave Course</button>
+                </form>
+            {% else %}
+                <form action="/enroll/{{ course.id }}" method="post">
+                <!-- If the user is not enrolled, show Enroll button -->
+                    <button type="submit" class="enroll-btn" onclick="return confirm('Are you sure you want to enroll this course?')">Enroll</button>
+                </form>
+            {% endif %}
 
         <div class="rating-info">
             <span class="rating">4.4</span>
             <span class="reviews">(1,134 reviews)</span>
-            <span class="level">Intermediate level</span>
-            <span class="duration">6 months</span>
-            <span class="enrolled">31 enrolled</span>
+            <span class="level">{{ course.level }}</span>
+            <span class="duration">{{ course.duration }}</span>
+            <span class="enrolled">{{ course.participants }} enrolled</span>
         </div>
 
         <!-- Tabs -->
@@ -62,27 +88,20 @@
             <button class="tab active" data-tab="hiddenContent">What you'll learn</button>
             <button class="tab" data-tab="courseDetails">Course Details</button>
             <button class="tab" data-tab="reviews">Reviews</button>
-            <button class="tab" data-tab="recommendations">Recommendations</button>
+            <button class="tab" data-tab="recommendations">{{ course.recommend }}</button>
         </div>
 
         <!-- Content Sections -->
         <div class="tab-content active" id="hiddenContent">
             <ul>
-                <li><b>Discrete Mathematics</b>: Master set theory, logic, relations, and functions as the foundation of computer science.</li>
-                <li><b>Graph Theory</b>: Learn about nodes, edges, paths, and algorithms like Dijkstra's for solving graph-related problems.</li>
-                <li><b>Combinatorics and Probability</b>: Understand permutations, combinations, and probability concepts applied in algorithms and cryptography.</li>
-                <li><b>Linear Algebra Basics</b>: Explore matrices, vectors, and transformations relevant in machine learning and graphics.</li>
-                <li><b>Algorithms and Complexity</b>: Learn mathematical tools to analyze algorithms for efficiency and correctness.</li>
+                <li><b>What you'll learn:</b></li>
+                <li>{{ course.learn }}</li>
             </ul>
         </div>
 
         <div class="tab-content" id="courseDetails">
-            <ul>
-                <li> <b> Level </b>: Intermediate (requires basic math knowledge)</li>
-                <li> <b> Duration </b>: 8 weeks (3-5 hours per week)</li>
-                <li> <b> Format </b>: Online, self-placed with recorded lectures and interactive assignments</li>
-                <li> <b> Prerequisites </b>: Familiarity with high-school algebra and basic programming concepts</li>
-            </ul>
+            <p><b>Course Details:</b></p>
+            <p>{{ course.details }}</p>
         </div>
 
         <div class="tab-content" id="reviews">
@@ -92,37 +111,29 @@
         </div>
 
         <div class="tab-content" id="recommendations">
-            <b>Who Should Take This Course?</b>
-            <ul>
-                <li>Computer Science students looking to improve their theoretical knowledge.</li>
-                <li>Software engineers interested in understanding the math behind algorithms and systems.</li>
-                <li>Aspiring data scientists or AI/ML enthusiasts.</li>
-            </ul>
-
-            <b>Additional Resources:</b>
-            <ul>
-                <li>"Discrete Mathematics and Its Applications" by Kenneth H. Rosen.</li>
-                <li>Practice problem sets on Khan Academy or LeetCode for algorithm-related exercises.</li>
-                <li>Supplementary videos from MIT OpenCourseWare</li>
-            </ul>
+            <p><b>Recommendations:</b></p>
+            <p>{{ course.recommend }}</p>
         </div>
 
         <br>
         <div class="skills">
             <h2>Skills you'll practice</h2>
             <ul>
-                <li>Analytic thinking</li>
-                <li>Mathematics</li>
-                <li>Excel</li>
+                <li>{{ course.skills }}</li>
+
             </ul>
         </div>
- <br>
+
+        <br>
+
         <div class="course-materials">
-            <h2>Course Materials</h2>
-            <a class="link" href="https://www.youtube.com/watch?v=DOAbEuP9HgA" target="_blank">https://www.youtube.com/watch?v=DOAbEuP9HgA</a>
-            <br><a class="link" href="https://www.youtube.com/watch?v=tS92P9PWNfU" target="_blank">https://www.youtube.com/watch?v=tS92P9PWNfU</a>
-            <br><a class="link" href="https://www.youtube.com/watch?v=3W40tBACFbI" target="_blank">https://www.youtube.com/watch?v=3W40tBACFbI</a>
-            <br><a class="link" href="https://youtube.com/shorts/3nMTv1AzthY?si=YiTLH-0-1Y42eqLj" target="_blank">https://youtube.com/shorts/3nMTv1AzthY?si=YiTLH-0-1Y42eqLj</a>
+            {% if enrolled %}
+                <h2>Course Materials <br>{{ course.course_url }} </h2>
+            {% else %}
+                <h2>Course Materials </h2>
+                <br>
+                <h2 class="isDisabled">{{ course.course_url }} </h2>
+            {% endif %}
         </div>
 
     </main>
@@ -157,6 +168,8 @@
             }, 10);
         }
     </script>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
 
 </body>
 </html>
