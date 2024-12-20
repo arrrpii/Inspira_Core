@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Account</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/account.css') }}">
+</head>
+<body id="body" style="display:none">
+        <header class="header">
+        <div class="logo">
+            <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Inspira Logo">
+        </div>
+        <nav class="nav">
+            <a href="/home" class="nav-link">Home</a>
+            <a href="/course_home" class="nav-link">Courses</a>
+            <a href="/quiz_home" class="nav-link">Quizzes</a>
+            <a href="/about_us" class="nav-link">About us</a>
+            <a href="/contact" class="nav-link">Contact us</a>
+        </nav>
+
+        {% if username %}
+        <div class="user-info">
+            <div class="dropdown">
+                <button class="dropdown-btn">Welcome, {{ username }}</button>
+                <div class="dropdown-content">
+                    <a href="/logout">Log out</a>
+                    <a href="/account">Account</a>
+                    <a href="/settings">Settings</a>
+                </div>
+            </div>
+        </div>
+        {% else %}
+            <div class="button-container">
+                <a href="/login">
+                    <button class="login-btn">Log in</button>
+                </a>
+                <a href="/index">
+                    <button class="sign-in-btn">Sign Up</button>
+                </a>
+            </div>
+        {% endif %}
+
+    </header>
+
+    <main>
+
+        <h1>My Courses</h1>
+
+        {% if courses %}
+            <div id="courses-container" class="courses-grid">
+            {% for course in courses %}
+            <div class="course-card">
+                <img src="{{ url_for('static', filename=course.image_url) }}" alt="{{ course.name }}">
+                <h2>{{ course.name }}</h2>
+                <p>
+                    <span>{{ course.duration }}</span> |
+                    <span>{{ course.num_courses }} Courses</span> |
+                    <span>{{ course.participants }} Participants</span>
+                </p>
+
+                <a href="/course_main/{{ course.id }}" class="join-btn">
+                    <button class="join-course-btn">Join Course</button>
+                </a>
+            </div>
+            {% endfor %}
+        </div>
+        {% else %}
+            <p>You are not enrolled in any courses yet.</p>
+        {% endif %}
+
+
+        <h1>Delete Account</h1>
+
+        <form action="/delete_account" method="POST">
+        <!-- If the user is enrolled, show Deactivate button -->
+            <button type="submit" class="enroll-btn" onclick="return confirm('Are you sure you want to delete your account?')">Delete Account</button>
+        </form>
+
+    </main>
+
+    <script type="text/javascript">
+        window.onload = function () {
+            setTimeout(function() {
+                document.getElementById("body").style.display = "";
+            }, 10);
+        }
+    </script>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+
+</body>
+</html>
