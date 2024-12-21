@@ -39,7 +39,6 @@ class User(db.Model):
     password = db.Column(db.String(200), nullable=False)
     role = db.Column(db.String(20), nullable=False, default='user')
     courses = db.relationship('Course', secondary='enrollment', back_populates='students', overlaps='enrollments')
-    deleted = db.Column(db.Boolean, default=False)
 
     def get_token(self, expires_sec=300):
         serial = Serializer(app.config['SECRET_KEY'], expires_in=expires_sec)
