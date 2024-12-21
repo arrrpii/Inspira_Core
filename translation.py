@@ -1,3 +1,4 @@
+
 translations = {
     "en": {
         "title": "The Smart Choice For Future",
