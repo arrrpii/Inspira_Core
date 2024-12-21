@@ -12,3 +12,4 @@ const button = document.getElementById('revealButton');
                 button.textContent = "What you'll learn";
             }
         });
+
